@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MIZUSHIMA | Flight Monitor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+<div class="container">
+
+    <header>
+        <div>
+            <div class="eyebrow">OAI AEROSPACE SYSTEMS · FLIGHT TELEMETRY</div>
+            <h1>MIZUSHIMA YR-02</h1>
+            <div class="subtitle">YR-02 FLIGHT MONITOR · CONTROL SYSTEM v12.1.0</div>
+        </div>
+
+        <div class="connection">
+            <div class="light" id="onlineLight"></div>
+            <div>
+                <strong id="onlineText">OFFLINE</strong>
+                <small id="connectionDetail">Esperando telemetría...</small>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-title">01 / Secuencia de vuelo</div>
+
+    <div class="grid">
+        <div class="card wide stage-card">
+            <div>
+                <div class="card-label">Etapa actual</div>
+                <div class="stage-name" id="stage">ESPERANDO DATOS</div>
+            </div>
+            <div class="state-pill idle" id="flightStatus">IDLE</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Estado de secuencia</div>
+            <div class="value cyan" id="state">--</div>
+            <div class="unit">Etapa numérica</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Temporizador</div>
+            <div class="value" id="timer">--</div>
+            <div class="unit">Ticks de ejecución</div>
+        </div>
+    </div>
+
+    <div class="section-title">02 / Datos de vuelo</div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-label">Altitud</div>
+            <div class="value highlight" id="altitude">--</div>
+            <div class="unit">Metros</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Altitud objetivo</div>
+            <div class="value" id="altTarget">--</div>
+            <div class="unit">Metros</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Error de altitud</div>
+            <div class="value yellow" id="altError">--</div>
+            <div class="unit">Metros</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Velocidad vertical</div>
+            <div class="value cyan" id="verticalSpeed">--</div>
+            <div class="unit">Metros / segundo</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Velocidad vertical objetivo</div>
+            <div class="value" id="vsTarget">--</div>
+            <div class="unit">Metros / segundo</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Error de velocidad</div>
+            <div class="value yellow" id="vsError">--</div>
+            <div class="unit">Metros / segundo</div>
+        </div>
+    </div>
+
+    <div class="section-title">03 / Motor y actitud</div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-label">RPS actuales</div>
+            <div class="value highlight" id="rpm">--</div>
+            <div class="unit">Revoluciones / segundo</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">RPM objetivo</div>
+            <div class="value" id="rpmTarget">--</div>
+            <div class="unit">Revoluciones / minuto</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Roll</div>
+            <div class="value cyan" id="roll">--</div>
+            <div class="unit">Orientación</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Pitch</div>
+            <div class="value cyan" id="pitch">--</div>
+            <div class="unit">Orientación</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Yaw autopiloto</div>
+            <div class="value" id="yaw">--</div>
+            <div class="unit">Orientación objetivo</div>
+        </div>
+    </div>
+
+    <div class="section-title">04 / Navegación</div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-label">Posición X</div>
+            <div class="value" id="gpsX">--</div>
+            <div class="unit">Coordenada actual</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Posición Y</div>
+            <div class="value" id="gpsY">--</div>
+            <div class="unit">Coordenada actual</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Destino X</div>
+            <div class="value" id="targetX">--</div>
+            <div class="unit">Coordenada objetivo</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Destino Y</div>
+            <div class="value" id="targetY">--</div>
+            <div class="unit">Coordenada objetivo</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Distancia al destino</div>
+            <div class="value highlight" id="distance">--</div>
+            <div class="unit">Metros</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Autopiloto</div>
+            <div class="value" id="autopilot">--</div>
+            <div class="unit">Sistema de navegación</div>
+        </div>
+    </div>
+
+    <div class="section-title">05 / Sistemas y propulsores</div>
+
+    <div class="systems">
+        <div class="system">Propulsor principal <span class="indicator" id="main"></span></div>
+        <div class="system">Control de altitud <span class="indicator" id="altHold"></span></div>
+        <div class="system">Estabilizador roll <span class="indicator" id="rollStab"></span></div>
+        <div class="system">Aceleradores <span class="indicator" id="accel"></span></div>
+        <div class="system">Booster norte <span class="indicator" id="north"></span></div>
+        <div class="system">Booster este <span class="indicator" id="east"></span></div>
+        <div class="system">Booster sur <span class="indicator" id="south"></span></div>
+        <div class="system">Booster oeste <span class="indicator" id="west"></span></div>
+    </div>
+
+    <div class="grid extra-grid">
+        <div class="card">
+            <div class="card-label">Spoiler</div>
+            <div class="value" id="spoiler">--</div>
+            <div class="unit">Valor de control</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Última actualización</div>
+            <div class="value cyan update-value" id="lastUpdate">--</div>
+            <div class="unit">Hora local del servidor</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-label">Antigüedad de telemetría</div>
+        <div class="value cyan" id="telemetryAge">--</div>
+        <div class="unit">Tiempo desde último paquete</div>
+    </div>
+
+    <footer>
+        OAI MIZUSHIMA YR-02 · TELEMETRY LINK · SOLO LECTURA
+    </footer>
+
+</div>
+</body>
+</html>
