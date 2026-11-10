@@ -1,9 +1,28 @@
 
 const OFFLINE_AFTER_MS = 2000;
 const REFRESH_RATE_MS = 250;
+const DIRECTION_PULSE_MS = 1500;
 
 let latestTelemetryTimestamp = 0;
-let lastUpdateClock = "--";
+let previousConnection = null;
+let previousSnapshot = {};
+let previousStage = null;
+let previousStatus = null;
+
+const directionTimers = {};
+
+const directions = ["north", "east", "south", "west"];
+
+const systems = [
+    ["main", "main", "MAIN PROPULSION"],
+    ["alt_hold", "altHold", "ALTITUDE HOLD"],
+    ["roll_stab", "rollStab", "ROLL STABILIZER"],
+    ["accel", "accel", "THROTTLE CONTROL"],
+    ["north", "north", "NORTH BOOSTER"],
+    ["east", "east", "EAST BOOSTER"],
+    ["south", "south", "SOUTH BOOSTER"],
+    ["west", "west", "WEST BOOSTER"]
+];
 
 function number(data, key, decimals = 1) {
     const value = Number(data[key]);
@@ -15,9 +34,9 @@ function number(data, key, decimals = 1) {
 
 function isActive(data, key) {
     return data[key] === "1" ||
-           data[key] === 1 ||
-           data[key] === true ||
-           data[key] === "true";
+        data[key] === 1 ||
+        data[key] === true ||
+        data[key] === "true";
 }
 
 function setValue(id, value) {
@@ -36,30 +55,165 @@ function setIndicator(id, active) {
     }
 }
 
+
+function logEvent(message, type = "normal") {
+    const log = document.getElementById("eventLog");
+
+    if (!log) return;
+
+    const entry = document.createElement("div");
+    entry.className = `event-entry ${type}`;
+
+    const time = document.createElement("span");
+    time.className = "event-time";
+    time.textContent = new Date().toLocaleTimeString();
+
+    const content = document.createElement("span");
+    content.textContent = message;
+
+    entry.append(time, content);
+    log.prepend(entry);
+
+    // Máximo 30 eventos
+    while (log.children.length > 30) {
+        log.lastElementChild.remove();
+    }
+}
+
+
 function setConnection(online, detail) {
-    document.getElementById("onlineLight")
-        .classList.toggle("online", online);
+    const light = document.getElementById("onlineLight");
+
+    if (light) {
+        light.classList.toggle("online", online);
+    }
 
     setValue("onlineText", online ? "ONLINE" : "OFFLINE");
     setValue("connectionDetail", detail);
+    setValue("monitorConnection", online ? "ONLINE" : "OFFLINE");
+
+    if (
+        previousConnection !== null &&
+        previousConnection !== online
+    ) {
+        logEvent(
+        online
+            ? "Telemetry connection restored."
+            : "Telemetry connection lost.",
+        online ? "navigation-event" : "error"
+    );
+    }
+
+    previousConnection = online;
 }
+
+/* DIRECTIONAL BOOSTER EFFECT */
+
+function pulseDirection(id, active) {
+    const indicator = document.getElementById(id);
+
+    if (!indicator) return;
+
+    const booster = indicator.closest(".booster");
+
+    if (!booster) return;
+
+    if (active) {
+        booster.classList.add("pulse");
+
+        clearTimeout(directionTimers[id]);
+
+        directionTimers[id] = setTimeout(() => {
+            booster.classList.remove("pulse");
+            delete directionTimers[id];
+        }, DIRECTION_PULSE_MS);
+    }
+}
+
+/* DIAGNOSTICS */
+
+function updateDiagnostics(data) {
+    systems.forEach(([key, indicatorId, label]) => {
+
+        const active = isActive(data, key);
+
+        if (directions.includes(key)) {
+            pulseDirection(indicatorId, active);
+        } else {
+            setIndicator(indicatorId, active);
+        }
+
+        const statusElement =
+            document.getElementById(indicatorId + "Status");
+
+        if (statusElement) {
+            statusElement.textContent =
+                active ? "ACTIVE" : "OFFLINE";
+
+            statusElement.classList.toggle(
+                "active-text",
+                active
+            );
+        }
+
+        const previous = previousSnapshot[key];
+
+        if (previous !== undefined && previous !== active) {
+            logEvent(
+                `${label}: ${active ? "ACTIVATED" : "DEACTIVATED"}.`,
+                active ? "activation" : "deactivation"
+            );
+        }
+
+        previousSnapshot[key] = active;
+    });
+}
+
+/* INTERFACE */
 
 function updateInterface(data) {
 
-    setValue("stage", data.stage || "UNKNOWN");
+    // FLIGHT SEQUENCE
+
+    const stage = data.stage || "UNKNOWN";
+    const status = (data.status || "IDLE").toUpperCase();
+
+    setValue("stage", stage);
     setValue("state", data.state ?? "--");
     setValue("timer", data.timer ?? "--");
 
-    const status = (data.status || "IDLE").toUpperCase();
     const statusElement = document.getElementById("flightStatus");
 
-    statusElement.textContent = status;
+    if (statusElement) {
+        statusElement.textContent = status;
 
-    statusElement.className = "state-pill " +
-        (status === "RUNNING" ? "running" :
-         status === "COMPLETED" ? "completed" : "idle");
+        statusElement.className =
+            "state-pill " +
+            (status === "RUNNING" ? "running" :
+             status === "COMPLETED" ? "completed" : "idle");
+    }
 
-    // Datos de vuelo
+    setValue("monitorFlight", status);
+
+    if (previousStage !== null && previousStage !== stage) {
+        logEvent(
+            `Flight stage changed: ${stage}`,
+            "phase-event"
+        );
+    }
+
+    if (previousStatus !== null && previousStatus !== status) {
+        logEvent(
+            `Flight status changed: ${status}`,
+            "phase-event"
+        );
+    }
+
+    previousStage = stage;
+    previousStatus = status;
+
+    // FLIGHT TELEMETRY
+
     setValue("altitude", number(data, "alt"));
     setValue("altTarget", number(data, "alt_target"));
     setValue("altError", number(data, "alt_error"));
@@ -68,15 +222,19 @@ function updateInterface(data) {
     setValue("vsTarget", number(data, "vs_target"));
     setValue("vsError", number(data, "vs_error"));
 
-    // Motor y actitud
+    // ENGINE
+
     setValue("rpm", number(data, "rps"));
     setValue("rpmTarget", number(data, "rps_target"));
 
-    setValue("roll", number(data, "roll", 4));
-    setValue("pitch", number(data, "pitch", 4));
-    setValue("yaw", number(data, "yaw", 4));
+    // AIRCRAFT ATTITUDE
 
-    // Navegación
+    setValue("roll", number(data, "roll", 2));
+    setValue("pitch", number(data, "pitch", 2));
+    setValue("yaw", number(data, "yaw", 2));
+
+    // NAVIGATION
+
     setValue("gpsX", number(data, "my_x", 2));
     setValue("gpsY", number(data, "my_y", 2));
 
@@ -85,30 +243,38 @@ function updateInterface(data) {
 
     setValue("distance", number(data, "ap_distance", 1));
 
+    // AUTOPILOT
+
+    const autopilot = isActive(data, "ap");
+
     setValue(
         "autopilot",
-        isActive(data, "ap") ? "ACTIVO" : "INACTIVO"
+        autopilot ? "ACTIVE" : "OFFLINE"
     );
+
+    setValue(
+        "monitorAutopilot",
+        autopilot ? "ACTIVE" : "OFFLINE"
+    );
+
+    // CONTROL SYSTEMS
 
     setValue("spoiler", number(data, "spoiler", 2));
 
-    // Sistemas y propulsores
-    setIndicator("main", isActive(data, "main"));
-    setIndicator("altHold", isActive(data, "alt_hold"));
-    setIndicator("rollStab", isActive(data, "roll_stab"));
-    setIndicator("accel", isActive(data, "accel"));
+    // DIAGNOSTICS
 
-    setIndicator("north", isActive(data, "north"));
-    setIndicator("east", isActive(data, "east"));
-    setIndicator("south", isActive(data, "south"));
-    setIndicator("west", isActive(data, "west"));
+    updateDiagnostics(data);
 
-    lastUpdateClock = new Date(
-        latestTelemetryTimestamp * 1000
-    ).toLocaleTimeString();
+    // LAST UPDATE
 
-    setValue("lastUpdate", lastUpdateClock);
+    setValue(
+        "lastUpdate",
+        new Date(latestTelemetryTimestamp * 1000)
+            .toLocaleTimeString()
+    );
 }
+
+/* CONNECTION STATUS */
 
 function updateConnectionStatus() {
 
@@ -118,19 +284,32 @@ function updateConnectionStatus() {
         return;
     }
 
-    const age = Date.now() - latestTelemetryTimestamp * 1000;
+    const age =
+        Date.now() - latestTelemetryTimestamp * 1000;
 
-    const online = age >= 0 && age < OFFLINE_AFTER_MS;
+    const online =
+        age >= 0 && age < OFFLINE_AFTER_MS;
 
     setConnection(
         online,
         online ? "Telemetría recibida" : "Telemetría detenida"
     );
 
-    setValue("telemetryAge", Math.max(0, Math.round(age)) + " ms");
+    setValue(
+        "telemetryAge",
+        Math.max(0, Math.round(age)) + " ms"
+    );
 }
 
+/* TELEMETRY REQUEST */
+
+let requestInProgress = false;
+
 async function updateTelemetry() {
+
+    if (requestInProgress) return;
+
+    requestInProgress = true;
 
     try {
         const response = await fetch("/api/telemetry", {
@@ -144,11 +323,11 @@ async function updateTelemetry() {
         const data = await response.json();
         const timestamp = Number(data.timestamp);
 
-        if (Number.isFinite(timestamp) &&
+        if (
+            Number.isFinite(timestamp) &&
             timestamp > 0 &&
-            timestamp <= Date.now() / 1000) {
-
-            // Actualizar solo cuando llega un paquete nuevo
+            timestamp <= Date.now() / 1000
+        ) {
             if (timestamp > latestTelemetryTimestamp) {
                 latestTelemetryTimestamp = timestamp;
                 updateInterface(data);
@@ -159,14 +338,18 @@ async function updateTelemetry() {
 
     } catch (error) {
         setConnection(false, "Servidor no disponible");
+
+    } finally {
+        requestInProgress = false;
     }
 }
 
-// Primera actualización
+/* INITIALIZATION */
+
+logEvent("Flight monitoring initialized.", "system-event");
+
 updateTelemetry();
 
-// Consultar servidor cada 250 ms
 setInterval(updateTelemetry, REFRESH_RATE_MS);
 
-// Actualizar ONLINE/OFFLINE y antigüedad independientemente
 setInterval(updateConnectionStatus, 100);
