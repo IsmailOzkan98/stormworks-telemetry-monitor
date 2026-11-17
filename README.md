@@ -1,6 +1,10 @@
 # OAi Electronics — Telemetry Monitor
 
-A modular, configurable telemetry dashboard built to monitor vehicle systems and display real-time flight data.
+<p align="center">
+  <img src="assets/dashboard.jpg" width="100%" alt="OAi Electronics Dashboard">
+</p>
+
+A modular and configurable telemetry dashboard designed to monitor vehicle systems and visualize real-time vehicle data.
 
 The project provides a flexible monitoring interface where both the dashboard layout and its appearance can be customized without modifying the core application.
 
@@ -11,7 +15,7 @@ The project provides a flexible monitoring interface where both the dashboard la
 - **Theme selection:** Switch between multiple built-in visual themes.
 - **Custom themes:** Create and integrate your own themes using CSS and optional JavaScript, without modifying the core system.
 - **Telemetry monitoring:** Receive and visualize live vehicle data through an HTTP endpoint.
-- **Recording and diagnostics:** Includes flight data recording, system diagnostics, event monitoring, and telemetry graphs.
+- **Recording and diagnostics:** Includes vehicle data recording, system diagnostics, event monitoring, and telemetry graphs.
 
 ## Technology Stack
 
