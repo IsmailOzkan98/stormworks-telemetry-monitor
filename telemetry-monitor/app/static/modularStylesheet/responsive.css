@@ -1,0 +1,184 @@
+
+/* =========================================
+   LARGE SCREENS
+   1400px+ / 850px+
+========================================= */
+
+@media (min-width: 1400px) and (min-height: 850px) {
+
+    body {
+        padding: 12px 24px;
+    }
+
+    .dashboard-grid {
+        gap: 13px;
+    }
+
+    .card {
+        padding: 13px 15px;
+    }
+}
+
+/* =========================================
+   COMPACT HEIGHT SCREENS
+   1100px+ / MAX 850px HEIGHT
+========================================= */
+
+@media (min-width: 1100px) and (max-height: 850px) {
+
+    body {
+        padding: 8px 15px;
+    }
+
+    header {
+        min-height: 65px;
+        padding: 7px 14px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .mission-bar {
+        min-height: 56px;
+        padding: 6px 13px;
+    }
+
+    .dashboard-grid {
+        gap: 9px;
+        margin-top: 8px;
+    }
+
+    .section-heading {
+        margin: 6px 0;
+        font-size: 15px;
+        padding-bottom: 4px;
+    }
+
+    .metric-grid {
+        gap: 6px;
+    }
+
+    .card {
+        padding: 8px 10px;
+    }
+
+    .card-label {
+        font-size: 10px;
+    }
+
+    .value {
+        font-size: 25px;
+        margin-top: 4px;
+    }
+
+    .unit {
+        font-size: 9px;
+        margin-top: 2px;
+    }
+
+    .diagnostic-row {
+        min-height: 29px;
+    }
+
+    .monitor-item {
+        padding: 7px 0;
+    }
+
+    .event-list {
+        max-height: 165px;
+    }
+
+    .event-entry {
+        padding: 6px 2px;
+    }
+
+    footer {
+        margin-top: 7px;
+        padding: 6px 0;
+    }
+}
+
+/* =========================================
+   TABLETS
+   MAX 1100px
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .column {
+        min-width: 0;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+   MAX 700px
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 10px;
+    }
+
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .mission-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .mission-data {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .column {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .telemetry-chart-panel {
+        padding: 9px;
+    }
+
+    .telemetry-readouts strong {
+        font-size: 19px;
+    }
+
+    .telemetry-chart-panel canvas {
+        height: 115px;
+    }
+
+    .telemetry-legend {
+        gap: 8px;
+        font-size: 8px;
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "recording": {
+        "enabled": true,
+        "interval": 2
+    },
+    "fields": {
+        "stage": true,
+        "state": true,
+        "status": true,
+        "timer": true,
+
+        "alt": true,
+        "alt_target": true,
+        "alt_error": true,
+
+        "vs": true,
+        "vs_target": true,
+        "vs_error": true,
+
+        "rps": true,
+        "rps_target": true,
+
+        "roll": true,
+        "pitch": true,
+        "yaw": true,
+
+        "ap": true,
+        "ap_distance": true,
+
+        "my_x": true,
+        "my_y": true,
+        "target_x": true,
+        "target_y": true,
+
+        "main": true,
+        "alt_hold": true,
+        "roll_stab": true,
+        "accel": true,
+        "descent": true,
+
+        "north": true,
+        "east": true,
+        "south": true,
+        "west": true,
+
+        "afterburner": true,
+        "spoiler": true,
+        "absolute_speed": true
+    }
+}

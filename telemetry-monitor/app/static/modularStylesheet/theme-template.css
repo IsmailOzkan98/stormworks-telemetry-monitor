@@ -1,0 +1,719 @@
+
+/* =====================================================
+   NAME and or DESCRIPTION
+   STRUCTURE ONLY — CSS SKELETON
+===================================================== */
+
+
+/* =====================================================
+   01. DESIGN TOKENS
+===================================================== */
+
+:root {
+
+    /* COLORS — BACKGROUNDS */
+
+    --color-background:
+    --color-background-grid:
+
+    --color-surface:
+    --color-surface-secondary:
+    --color-surface-hover:
+    --color-surface-inverted:
+
+
+    /* COLORS — TEXT */
+
+    --color-text-primary:
+    --color-text-secondary:
+    --color-text-muted:
+    --color-text-inverted:
+
+
+    /* COLORS — ACCENTS */
+
+    --color-accent:
+    --color-accent-hover:
+    --color-accent-muted:
+
+
+    /* COLORS — BORDERS & SHADOWS */
+
+    --color-border:
+    --color-border-strong:
+    --color-shadow:
+
+
+    /* COLORS — SYSTEM STATUS */
+
+    --color-status-success:
+    --color-status-info:
+    --color-status-warning:
+    --color-status-error:
+
+
+    /* COLORS — TELEMETRY */
+
+    --color-chart-primary:
+    --color-chart-target:
+    --color-chart-warning:
+    --color-chart-error:
+
+
+    /* TYPOGRAPHY — FONTS */
+
+    --font-primary:
+    --font-monospace:
+
+
+    /* TYPOGRAPHY — GLOBAL SIZES */
+
+    --font-size-xs:
+    --font-size-sm:
+    --font-size-base:
+    --font-size-md:
+    --font-size-lg:
+    --font-size-xl:
+
+
+    /* TYPOGRAPHY — HEADINGS */
+
+    --font-size-h1:
+    --font-size-h2:
+    --font-size-h3:
+    --font-size-h4:
+    --font-size-h5:
+    --font-size-h6:
+
+
+    /* TYPOGRAPHY — COMPONENTS */
+
+    /* HEADER */
+    --font-size-header-title:
+    --font-size-header-subtitle:
+
+    /* MISSION BAR */
+    --font-size-mission-label:
+    --font-size-mission-value:
+    --font-size-mission-data:
+
+    /* METRIC CARDS */
+    --font-size-card-label:
+    --font-size-card-value:
+    --font-size-card-unit:
+
+    /* DIAGNOSTICS */
+    --font-size-diagnostic-header:
+    --font-size-diagnostic-label:
+    --font-size-diagnostic-status:
+
+    /* BOOSTERS */
+    --font-size-booster-label:
+
+    /* MONITOR */
+    --font-size-monitor-title:
+    --font-size-monitor-label:
+    --font-size-monitor-value:
+
+    /* EVENT LOG */
+    --font-size-event-header:
+    --font-size-event-time:
+    --font-size-event-entry:
+
+    /* SYSTEM INFO */
+    --font-size-system-label:
+    --font-size-system-value:
+
+    /* TELEMETRY */
+    --font-size-telemetry-title:
+    --font-size-telemetry-label:
+    --font-size-telemetry-value:
+
+    /* FOOTER */
+    --font-size-footer:
+
+
+    /* TYPOGRAPHY — WEIGHTS */
+
+    --font-weight-light:
+    --font-weight-regular:
+    --font-weight-medium:
+    --font-weight-semibold:
+    --font-weight-bold:
+
+
+    /* TYPOGRAPHY — LETTER SPACING */
+
+    --letter-spacing-tight:
+    --letter-spacing-normal:
+    --letter-spacing-wide:
+    --letter-spacing-wider:
+    --letter-spacing-heading:
+
+
+    /* TYPOGRAPHY — TRANSFORMS */
+
+    --text-transform-heading:
+    --text-transform-label:
+
+
+    /* BORDERS */
+
+    --border-width:
+    --border-width-accent:
+    --border-radius:
+
+
+    /* SHADOWS */
+
+    --shadow-sm:
+    --shadow-md:
+    --shadow-lg:
+
+
+    /* SPACING */
+
+    --spacing-xs:
+    --spacing-sm:
+    --spacing-md:
+    --spacing-lg:
+    --spacing-xl:
+    --spacing-2xl:
+
+
+    /* MOTION */
+
+    --transition-fast:
+    --transition-normal:
+    --animation-indicator:
+
+
+    /* LAYOUT */
+
+    --grid-size:
+
+}
+
+
+/* =====================================================
+   02. TYPOGRAPHY SYSTEM
+===================================================== */
+
+/* GLOBAL TEXT */
+
+body {
+}
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+
+/* LABELS */
+
+.eyebrow,
+.subtitle,
+.micro-label,
+.card-label {
+}
+
+
+/* DATA TYPOGRAPHY */
+
+.value,
+.mission-data strong,
+.telemetry-readouts strong {
+}
+
+
+/* =====================================================
+   03. GLOBAL STYLES
+===================================================== */
+
+html {
+}
+
+body {
+}
+
+body::before {
+}
+
+::selection {
+}
+
+
+/* =====================================================
+   04. REUSABLE COMPONENTS
+===================================================== */
+
+/* PANELS */
+
+.panel {
+}
+
+
+/* SECTION HEADERS */
+
+.section-header {
+}
+
+.module-header > span {
+}
+
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+}
+
+
+/* BUTTON SYSTEM */
+
+button,
+.button {
+}
+
+
+/* BUTTON SWEEP */
+
+button::after,
+.button::after {
+}
+
+
+/* BUTTON HOVER */
+
+button:not(:disabled):hover,
+.button:hover {
+}
+
+button:not(:disabled):hover::after,
+.button:hover::after {
+}
+
+
+/* BUTTON ACTIVE */
+
+button:not(:disabled):active,
+.button:active {
+}
+
+
+/* BUTTON DISABLED */
+
+button:disabled,
+.button:disabled {
+}
+
+
+/* INDICATORS */
+
+.indicator {
+}
+
+.indicator.active {
+}
+
+
+/* =====================================================
+   05. APPLICATION LAYOUT
+===================================================== */
+
+/* HEADER */
+
+header {
+}
+
+header h1 {
+}
+
+h1 span {
+}
+
+.connection {
+}
+
+.connection strong {
+}
+
+.connection small {
+}
+
+
+/* MISSION BAR */
+
+.mission-bar {
+}
+
+.mission-stage {
+}
+
+.mission-stage .micro-label {
+}
+
+.mission-stage strong {
+}
+
+
+/* MISSION DATA */
+
+.mission-data > div {
+}
+
+.mission-data .micro-label {
+}
+
+.mission-data strong {
+}
+
+.mission-data .state-pill {
+}
+
+
+/* RECORDER PANEL */
+
+.recorder-panel {
+}
+
+
+/* METRIC CARDS */
+
+.card {
+}
+
+.card:hover {
+}
+
+.card::after {
+}
+
+.card-label {
+}
+
+.value {
+}
+
+.unit {
+}
+
+.highlight {
+}
+
+.cyan {
+}
+
+.yellow {
+}
+
+
+/* DIAGNOSTICS */
+
+.diagnostics-panel {
+}
+
+.diagnostic-header {
+}
+
+.diagnostic-row {
+}
+
+.diagnostic-status b {
+}
+
+.diagnostic-status b.active-text {
+}
+
+.diagnostic-separator {
+}
+
+
+/* DIRECTIONAL BOOSTERS */
+
+.booster {
+}
+
+.booster span {
+}
+
+.booster.pulse {
+}
+
+.booster.pulse span {
+}
+
+.booster.pulse .indicator {
+}
+
+
+/* MONITOR */
+
+.monitor-panel {
+}
+
+.monitor-title {
+}
+
+.monitor-item {
+}
+
+.monitor-item span {
+}
+
+.monitor-item strong {
+}
+
+
+/* EVENT LOG */
+
+.event-panel {
+}
+
+.event-header {
+}
+
+.event-header span:last-child {
+}
+
+.event-entry {
+}
+
+.event-entry:hover {
+}
+
+.event-time {
+}
+
+.event-entry span:last-child {
+}
+
+
+/* EVENT — FLIGHT PHASE */
+
+.event-entry.phase-event {
+}
+
+.event-entry.phase-event .event-time,
+.event-entry.phase-event span:last-child {
+}
+
+
+/* EVENT — ACTIVATION */
+
+.event-entry.activation {
+}
+
+.event-entry.activation span:last-child {
+}
+
+
+/* EVENT — DEACTIVATION */
+
+.event-entry.deactivation {
+}
+
+.event-entry.deactivation span:last-child {
+}
+
+
+/* EVENT — ERROR */
+
+.event-entry.error {
+}
+
+.event-entry.error span:last-child {
+}
+
+
+/* EVENT — NAVIGATION */
+
+.event-entry.navigation-event {
+}
+
+.event-entry.navigation-event span:last-child {
+}
+
+
+/* EVENT — WARNING */
+
+.event-entry.warning {
+}
+
+.event-entry.warning span:last-child {
+}
+
+
+/* EVENT — NORMAL */
+
+.event-entry.normal {
+}
+
+.event-entry.normal span:last-child {
+}
+
+
+/* SYSTEM INFO */
+
+.system-info > div {
+}
+
+.system-info span {
+}
+
+.system-info strong {
+}
+
+
+/* FLIGHT DATA RECORDER */
+
+.recorder-dot {
+}
+
+.recorder-btn.stop .recorder-dot {
+}
+
+
+/* TELEMETRY GRAPHS */
+
+.telemetry-chart-panel {
+}
+
+.telemetry-chart-panel::after {
+}
+
+.telemetry-chart-header {
+}
+
+.telemetry-chart-header span:last-child {
+}
+
+
+/* TELEMETRY READOUTS */
+
+.telemetry-readouts span,
+.telemetry-readouts small {
+}
+
+.telemetry-readouts strong {
+}
+
+.telemetry-readouts > div:nth-child(2) strong {
+}
+
+.telemetry-readouts > div:nth-child(3) strong {
+}
+
+
+/* TELEMETRY LEGEND */
+
+.legend-alt {
+}
+
+.legend-target {
+}
+
+.legend-error {
+}
+
+
+/* =====================================================
+   06. SCROLLBAR
+===================================================== */
+
+.event-list::-webkit-scrollbar {
+}
+
+.event-list::-webkit-scrollbar-track {
+}
+
+.event-list::-webkit-scrollbar-thumb {
+}
+
+
+/* =====================================================
+   07. FOOTER
+===================================================== */
+
+footer {
+}
+
+
+/* =====================================================
+   08. SYSTEM STATES
+===================================================== */
+
+/* SUCCESS */
+
+.state-pill.running,
+.diagnostic-status b.active-text {
+}
+
+
+/* INFO */
+
+.state-pill.completed {
+}
+
+
+/* WARNING */
+
+.state-pill.idle {
+}
+
+
+/* =====================================================
+   09. ANIMATIONS
+===================================================== */
+
+@keyframes indicator-pulse {
+}
+
+@keyframes pulse {
+}
+
+
+/* =====================================================
+   10. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+    }
+
+}
+

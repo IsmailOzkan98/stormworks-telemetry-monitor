@@ -1,0 +1,725 @@
+/* ==================================================
+   01. GLOBAL STRUCTURE
+================================================== */
+
+:root {
+    /* Main dashboard spacing */
+    --spacing-module: 14px;
+    --spacing-section: 8px;
+    --spacing-card: 8px;
+    --spacing-column: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 14px 22px;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1900px;
+    margin: auto;
+}
+
+
+/* =========================================
+   GLOBAL BUTTON STRUCTURE
+========================================= */
+
+button,
+.button {
+    padding: 7px 11px;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   02. HEADER
+================================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    min-height: 76px;
+    padding: 10px 20px;
+}
+
+h1 {
+    margin: 2px 0;
+}
+
+.eyebrow,
+.subtitle {
+    font-size: 11px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.unit-designation {
+    text-align: right;
+    line-height: 1.6;
+}
+
+.unit-designation span,
+.unit-designation small {
+    display: block;
+    font-size: 10px;
+}
+
+.unit-designation strong {
+    font-size: 12px;
+}
+
+.connection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 190px;
+    padding: 11px 16px;
+}
+
+.light {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+}
+
+.connection strong {
+    display: block;
+}
+
+.connection small {
+    font-size: 10px;
+}
+
+
+
+/* ==================================================
+   03. MISSION LAYOUT
+================================================== */
+
+.mission-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 8.5fr) minmax(0, 1.5fr);
+    align-items: stretch;
+    gap: 10px;
+
+    width: 100%;
+    padding-bottom: 0.5%;
+}
+
+#missionBarContainer,
+#flightRecorderContainer {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 80px;
+    min-width: 0;
+}
+
+
+
+
+/* ==================================================
+   04. MISSION BAR
+================================================== */
+
+.mission-bar-title {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    padding: 7px 12px;
+}
+
+.mission-bar {
+    flex: 1;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns:
+        minmax(190px, 1fr)
+        minmax(0, 3fr);
+
+    grid-template-areas: "stage data";
+
+    align-items: center;
+    gap: 12px 24px;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 80px;
+
+    padding: 9px 18px;
+}
+
+.mission-stage {
+    grid-area: stage;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+
+    min-width: 0;
+    padding: 10px 14px;
+}
+
+.mission-data {
+    grid-area: data;
+
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(100px, 1fr));
+
+    align-items: stretch;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.mission-data > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+
+    min-width: 0;
+    padding: 9px 12px;
+
+    box-sizing: border-box;
+}
+
+.micro-label {
+    margin-bottom: 0;
+}
+
+.state-pill {
+    padding: 3px 9px;
+}
+
+
+/* ==================================================
+   05. FLIGHT DATA RECORDER
+================================================== */
+
+.recorder-panel {
+    flex: 1;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 18px;
+}
+
+.recorder-title {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    padding: 7px 12px;
+}
+
+.recorder-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.recorder-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 5px;
+}
+
+.recorder-status {
+    display: block;
+    margin: 0;
+    font-size: 9px;
+    text-align: center;
+}
+
+
+/* ==================================================
+   06. MAIN DASHBOARD GRID
+================================================== */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            var(--dashboard-columns, 3),
+            minmax(0, 1fr)
+        );
+
+    align-items: start;
+
+    gap: var(
+        --dashboard-gap,
+        var(--spacing-column)
+    );
+
+    margin-top: 12px;
+
+}
+
+.column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--spacing-module);
+
+    min-width: 0;
+
+}
+
+.dashboard-grid > *,
+.column > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* ==================================================
+   07. DYNAMIC MODULES
+================================================== */
+
+.card-header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px 12px;
+}
+
+/* Container for dynamically generated card sections */
+
+#cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-module);
+
+    min-width: 0;
+}
+
+/* Each dynamically generated section */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-section);
+
+    min-width: 0;
+}
+
+/* Cards inside each section */
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-card);
+
+    min-width: 0;
+}
+
+
+/* ==================================================
+   08. SECTION HEADINGS
+================================================== */
+
+.system-info-module {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-section);
+
+    min-width: 0;
+}
+
+/* Reusable module title structure */
+
+.module-header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    margin: 0;
+    padding: 7px 12px;
+}
+
+.module-header > span {
+    display: inline-block;
+}
+
+
+/* ==================================================
+   09. METRIC CARDS
+================================================== */
+
+.card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 12px 14px;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 25px;
+    height: 2px;
+}
+
+.card-label {
+    min-height: 14px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.value {
+    margin-top: 6px;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+}
+
+.unit {
+    margin-top: 4px;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   10. DIAGNOSTICS
+================================================== */
+
+.diagnostics-panel {
+    padding: 12px;
+}
+
+.diagnostic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+}
+
+.diagnostic-grid .diagnostic-row {
+    min-width: 0;
+    gap: 5px;
+}
+
+.diagnostic-grid .diagnostic-row > span:first-child {
+    font-size: 10px;
+}
+
+.diagnostic-header,
+.diagnostic-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.diagnostic-header {
+    padding-bottom: 8px;
+    font-size: 10px;
+}
+
+.diagnostic-row {
+    min-height: 35px;
+    font-size: 11px;
+}
+
+.diagnostic-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.diagnostic-status b {
+    font-size: 10px;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+}
+
+.diagnostic-separator {
+    margin: 10px 0 8px;
+    padding-top: 9px;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   11. DIRECTIONAL BOOSTERS
+================================================== */
+
+.booster-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+}
+
+.booster {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 9px;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   12. MONITOR
+================================================== */
+
+.monitor-panel {
+    padding: 12px 14px;
+}
+
+.monitor-title,
+.event-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 9px;
+    font-size: 11px;
+}
+
+.monitor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 0;
+    font-size: 11px;
+}
+
+.monitor-item:last-child {
+    border: 0;
+}
+
+.monitor-item strong {
+    text-align: right;
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   13. EVENT LOG
+================================================== */
+
+.event-panel {
+    box-sizing: border-box;
+    height: clamp(180px, 25vh, 280px);
+
+    padding: 12px;
+    margin-bottom: 1%;
+}
+
+.event-header {
+    align-items: center;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    height: calc(100% - 35px);
+    overflow-y: auto;
+}
+
+.event-entry {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 9px 5px;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.event-time {
+    min-width: 65px;
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   14. SYSTEM INFO
+================================================== */
+
+.system-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+
+    min-width: 0;
+}
+
+.system-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 9px;
+
+    min-width: 0;
+}
+
+.system-info span {
+    font-size: 10px;
+}
+
+.system-info strong {
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   15. TELEMETRY GRAPHS
+================================================== */
+
+.telemetry-title {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 7px 12px;
+}
+
+.telemetry-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.telemetry-chart-panel {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 10px 12px 7px;
+}
+
+.telemetry-chart-panel::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 25px;
+    height: 2px;
+}
+
+.telemetry-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    padding-bottom: 7px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.telemetry-chart-header span:last-child {
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.telemetry-readouts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+
+    padding: 8px 0 5px;
+}
+
+.telemetry-readouts > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 2px;
+}
+
+.telemetry-readouts span {
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.telemetry-readouts strong {
+    overflow-wrap: anywhere;
+    line-height: 1.1;
+}
+
+.telemetry-readouts small {
+    font-size: 8px;
+}
+
+.telemetry-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 3px 0 5px;
+    font-size: 9px;
+}
+
+.telemetry-chart-panel canvas {
+    display: block;
+    width: 100%;
+    height: 105px;
+}
+
+
+/* ==================================================
+   16. FOOTER
+================================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin-top: 12px;
+    padding: 10px 0;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* ==================================================
+   MODULE HEADER SPACING
+================================================== */
+
+.mission-bar-title,
+.recorder-title {
+    margin-top: 10px;
+}

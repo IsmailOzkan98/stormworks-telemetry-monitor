@@ -1,0 +1,122 @@
+
+{
+    "enabled": true,
+    "sectionHeading": {
+        "title": "FLIGHT TELEMETRY"
+    },
+    "history": {
+        "seconds": 60,
+        "maxPoints": 1200
+    },
+    "scale": {
+        "padding": 0.12,
+        "defaultMin": -1,
+        "defaultMax": 1
+    },
+    "graphs": [
+        {
+            "id": "altitude",
+            "title": "ALTITUDE PROFILE",
+            "historyLabel": "60 SEC HISTORY",
+            "canvasId": "altitudeChart",
+            "leftAxis": [
+                {
+                    "id": "altitude",
+                    "label": "ALTITUDE",
+                    "source": "alt",
+                    "default": "--",
+                    "decimals": 1,
+                    "unit": "METERS",
+                    "color": "--graph-altitude",
+                    "style": "solid"
+                },
+                {
+                    "id": "altTarget",
+                    "label": "TARGET",
+                    "source": "alt_target",
+                    "default": "--",
+                    "decimals": 1,
+                    "unit": "METERS",
+                    "color": "--graph-target",
+                    "style": "dashed"
+                }
+            ],
+            "rightAxis": {
+                "id": "altError",
+                "label": "ERROR",
+                "source": "alt_error",
+                "default": "--",
+                "decimals": 1,
+                "unit": "METERS",
+                "color": "--graph-alt-error",
+                "style": "solid"
+            },
+            "legend": [
+                {
+                    "label": "ACTUAL",
+                    "class": "legend-alt"
+                },
+                {
+                    "label": "TARGET",
+                    "class": "legend-target"
+                },
+                {
+                    "label": "ERROR",
+                    "class": "legend-error"
+                }
+            ]
+        },
+        {
+            "id": "verticalSpeed",
+            "title": "VERTICAL SPEED PROFILE",
+            "historyLabel": "60 SEC HISTORY",
+            "canvasId": "verticalSpeedChart",
+            "leftAxis": [
+                {
+                    "id": "verticalSpeed",
+                    "label": "VERTICAL SPEED",
+                    "source": "vs",
+                    "default": "--",
+                    "decimals": 1,
+                    "unit": "M/S",
+                    "color": "--graph-altitude",
+                    "style": "solid"
+                },
+                {
+                    "id": "vsTarget",
+                    "label": "TARGET",
+                    "source": "vs_target",
+                    "default": "--",
+                    "decimals": 1,
+                    "unit": "M/S",
+                    "color": "--graph-target",
+                    "style": "dashed"
+                }
+            ],
+            "rightAxis": {
+                "id": "vsError",
+                "label": "ERROR",
+                "source": "vs_error",
+                "default": "--",
+                "decimals": 1,
+                "unit": "M/S",
+                "color": "--graph-vs-error",
+                "style": "solid"
+            },
+            "legend": [
+                {
+                    "label": "ACTUAL",
+                    "class": "legend-alt"
+                },
+                {
+                    "label": "TARGET",
+                    "class": "legend-target"
+                },
+                {
+                    "label": "ERROR",
+                    "class": "legend-error"
+                }
+            ]
+        }
+    ]
+}

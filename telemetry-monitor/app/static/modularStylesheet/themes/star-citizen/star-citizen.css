@@ -1,0 +1,1033 @@
+
+/* =====================================================
+   STAR CITIZEN — AMBER FLIGHT SYSTEM
+   Full theme adaptation — CSS DESIGN SYSTEM
+===================================================== */
+
+
+/* =====================================================
+   01. DESIGN TOKENS
+===================================================== */
+
+:root {
+
+    /* COLORS — BACKGROUNDS */
+
+    --color-background: #080604;
+    --color-background-grid: rgba(255, 174, 65, .08);
+
+    --color-surface: #100b06;
+    --color-surface-secondary: #1b1008;
+    --color-surface-hover: #29190b;
+    --color-surface-inverted: #050302;
+
+
+    /* COLORS — TEXT */
+
+    --color-text-primary: #ffcf80;
+    --color-text-secondary: #d99a48;
+    --color-text-muted: #98734a;
+    --color-text-inverted: #100700;
+
+
+    /* COLORS — ACCENTS */
+
+    --color-accent: #e08400;
+    --color-accent-hover: #ffb347;
+    --color-accent-muted: rgba(224, 132, 0, .09);
+
+
+    /* COLORS — BORDERS & SHADOWS */
+
+    --color-border: #654018;
+    --color-border-strong: #88551f;
+    --color-shadow: rgba(224, 132, 0, .2);
+
+
+    /* COLORS — SYSTEM STATUS */
+
+    --color-status-success: #e8ad51;
+    --color-status-info: #ffc66d;
+    --color-status-warning: #ffb347;
+    --color-status-error: #ff5722;
+
+
+    /* COLORS — TELEMETRY */
+
+    --color-chart-primary: #ffb347;
+    --color-chart-target: #fff0c2;
+    --color-chart-warning: #e08400;
+    --color-chart-error: #ff6a20;
+
+
+    /* TYPOGRAPHY — FONTS */
+
+    --font-primary: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+
+    /* TYPOGRAPHY — GLOBAL SIZES */
+
+    --font-size-xs: 9px;
+    --font-size-sm: 10px;
+    --font-size-base: 1rem;
+    --font-size-md: 11px;
+    --font-size-lg: 14px;
+    --font-size-xl: 19px;
+
+
+    /* TYPOGRAPHY — HEADINGS */
+
+    --font-size-h1: inherit;
+    --font-size-h2: inherit;
+    --font-size-h3: inherit;
+    --font-size-h4: inherit;
+    --font-size-h5: inherit;
+    --font-size-h6: inherit;
+
+
+    /* TYPOGRAPHY — COMPONENTS */
+
+    /* HEADER */
+    --font-size-header-title: inherit;
+    --font-size-header-subtitle: inherit;
+
+    /* MISSION BAR */
+    --font-size-mission-label: var(--font-size-xs);
+    --font-size-mission-value: var(--font-size-xl);
+    --font-size-mission-data: var(--font-size-lg);
+
+    /* METRIC CARDS */
+    --font-size-card-label: inherit;
+    --font-size-card-value: inherit;
+    --font-size-card-unit: inherit;
+
+    /* DIAGNOSTICS */
+    --font-size-diagnostic-header: inherit;
+    --font-size-diagnostic-label: inherit;
+    --font-size-diagnostic-status: inherit;
+
+    /* BOOSTERS */
+    --font-size-booster-label: inherit;
+
+    /* MONITOR */
+    --font-size-monitor-title: inherit;
+    --font-size-monitor-label: inherit;
+    --font-size-monitor-value: inherit;
+
+    /* EVENT LOG */
+    --font-size-event-header: inherit;
+    --font-size-event-time: inherit;
+    --font-size-event-entry: inherit;
+
+    /* SYSTEM INFO */
+    --font-size-system-label: inherit;
+    --font-size-system-value: inherit;
+
+    /* TELEMETRY */
+    --font-size-telemetry-title: inherit;
+    --font-size-telemetry-label: inherit;
+    --font-size-telemetry-value: inherit;
+
+    /* FOOTER */
+    --font-size-footer: inherit;
+
+
+    /* TYPOGRAPHY — WEIGHTS */
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --font-weight-button: 650;
+
+
+    /* TYPOGRAPHY — LETTER SPACING */
+
+    --letter-spacing-tight: -.06em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: .08em;
+    --letter-spacing-wider: .14em;
+    --letter-spacing-heading: .08em;
+
+
+    /* TYPOGRAPHY — TRANSFORMS */
+
+    --text-transform-heading: none;
+    --text-transform-label: none;
+
+
+    /* BORDERS */
+
+    --border-width: 1px;
+    --border-width-accent: 2px;
+    --border-radius: 9px;
+
+
+    /* SHADOWS */
+
+    --shadow-sm: 0 0 4px rgba(224, 132, 0, .25);
+    --shadow-md: 0 0 12px rgba(224, 132, 0, .09);
+    --shadow-lg: 0 0 18px rgba(224, 132, 0, .2);
+
+    --shadow-text: 0 0 12px rgba(255, 153, 24, .38);
+    --shadow-text-soft: 0 0 5px rgba(255, 153, 24, .2);
+    --shadow-text-strong: 0 0 10px rgba(255, 153, 24, .35);
+
+
+    /* SPACING */
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+
+
+    /* MOTION */
+
+    --transition-fast: .15s ease;
+    --transition-normal: .25s ease;
+    --animation-indicator: indicator-pulse 2.5s infinite ease-in-out;
+
+
+    /* LAYOUT */
+
+    --grid-size: 4px;
+
+
+    /* THEME-SPECIFIC COLORS */
+
+    --color-gold-light: #ffcf72;
+    --color-ivory: #fff4d8;
+    --color-amber-light: #ffe0a1;
+    --color-amber-muted: #c18b48;
+    --color-amber-secondary: #a77b45;
+    --color-amber-tertiary: #b58a54;
+    --color-amber-detail: #d5a365;
+
+    --color-grid-secondary: rgba(255, 169, 40, .035);
+
+    --color-booster: #ff9d22;
+    --color-indicator-idle: #4c2a0e;
+    --color-indicator-active: #ff9d22;
+
+    --color-chart-highlight: #fff0c2;
+}
+
+
+/* =====================================================
+   02. TYPOGRAPHY SYSTEM
+===================================================== */
+
+/* GLOBAL TEXT */
+
+body {
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-normal);
+}
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: inherit;
+    text-transform: var(--text-transform-heading);
+}
+
+h1 {
+    color: var(--color-amber-light);
+    font-size: var(--font-size-h1);
+    letter-spacing: var(--letter-spacing-heading);
+    text-shadow:
+        0 0 8px rgba(255, 153, 24, .45),
+        0 0 22px rgba(224, 132, 0, .2);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+}
+
+
+/* LABELS */
+
+.eyebrow,
+.subtitle,
+.micro-label,
+.card-label {
+    font-family: var(--font-primary);
+    font-size: inherit;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-normal);
+}
+
+
+/* DATA TYPOGRAPHY */
+
+.value,
+.mission-data strong,
+.telemetry-readouts strong {
+    font-family: var(--font-monospace);
+    font-weight: var(--font-weight-medium);
+}
+
+
+/* =====================================================
+   03. GLOBAL STYLES
+===================================================== */
+
+html {
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    text-shadow: var(--shadow-text-soft);
+}
+
+body {
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(92, 42, 0, .2),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            #100a04,
+            #050302 75%
+        );
+
+    color: var(--color-text-primary);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    pointer-events: none;
+    opacity: .13;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255, 174, 65, .08) 4px
+    );
+}
+
+::selection {
+    color: var(--color-text-inverted);
+    background: var(--color-chart-primary);
+}
+
+
+/* =====================================================
+   04. REUSABLE COMPONENTS
+===================================================== */
+
+/* PANELS */
+
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40, 24, 10, .96),
+            rgba(12, 8, 4, .98)
+        );
+
+    border: var(--border-width) solid var(--color-border);
+
+    box-shadow:
+        0 0 12px rgba(224, 132, 0, .09),
+        inset 0 0 18px rgba(224, 132, 0, .035);
+}
+
+
+/* SECTION HEADERS */
+
+.section-header,
+.module-header > span {
+    color: var(--color-text-primary);
+    text-shadow: var(--shadow-text);
+}
+
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+    color: var(--color-amber-light);
+    background: #100a04;
+    border: var(--border-width) solid #704719;
+    font-family: var(--font-monospace);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-chart-primary);
+    box-shadow: 0 0 10px rgba(224, 132, 0, .3);
+}
+
+
+/* BUTTON SYSTEM */
+
+button,
+.button {
+    color: var(--color-amber-light);
+
+    background:
+        linear-gradient(
+            180deg,
+            #39230e,
+            #1a1007
+        );
+
+    border: var(--border-width) solid var(--color-border-strong);
+
+    font-family: var(--font-monospace);
+    font-size: inherit;
+    font-weight: var(--font-weight-button);
+
+    text-shadow: var(--shadow-text-soft);
+    transition: var(--transition-normal);
+}
+
+
+/* BUTTON SWEEP */
+
+button::after,
+.button::after,
+button::before,
+.button::before {
+    border-color: var(--color-accent);
+}
+
+
+/* BUTTON HOVER */
+
+button:not(:disabled):hover,
+.button:hover {
+    color: var(--color-ivory);
+
+    background:
+        linear-gradient(
+            180deg,
+            #59350f,
+            #2b1909
+        );
+
+    border-color: var(--color-chart-primary);
+    box-shadow: 0 0 13px rgba(224, 132, 0, .25);
+}
+
+
+/* BUTTON ACTIVE */
+
+button:not(:disabled):active,
+.button:active {
+    color: var(--color-amber-light);
+}
+
+
+/* BUTTON DISABLED */
+
+button:disabled,
+.button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/* INDICATORS */
+
+.indicator {
+    background: var(--color-indicator-idle);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* INDICATORS — ACTIVE */
+
+.indicator.active {
+    background: var(--color-indicator-active);
+
+    box-shadow:
+        0 0 8px var(--color-accent),
+        0 0 18px rgba(255, 153, 24, .5);
+}
+
+
+/* =====================================================
+   05. APPLICATION LAYOUT
+===================================================== */
+
+/* HEADER */
+
+header {
+    color: var(--color-text-primary);
+    text-shadow: var(--shadow-text);
+}
+
+header h1 {
+    color: var(--color-amber-light);
+    font-size: var(--font-size-header-title);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+h1 span {
+    color: var(--color-amber-light);
+
+    text-shadow:
+        0 0 8px rgba(255, 153, 24, .45),
+        0 0 22px rgba(224, 132, 0, .2);
+}
+
+.eyebrow,
+.subtitle {
+    color: var(--color-amber-muted);
+    font-size: var(--font-size-header-subtitle);
+}
+
+.connection {
+    color: #c28a45;
+}
+
+.connection strong {
+    color: var(--color-amber-light);
+}
+
+.connection small {
+    color: #c28a45;
+}
+
+
+/* MISSION BAR */
+
+.mission-bar,
+.recorder-panel,
+.card,
+.diagnostics-panel,
+.monitor-panel,
+.event-panel,
+.telemetry-chart-panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40, 24, 10, .96),
+            rgba(12, 8, 4, .98)
+        );
+
+    border: var(--border-width) solid #69431b;
+
+    box-shadow:
+        0 0 12px rgba(224, 132, 0, .09),
+        inset 0 0 18px rgba(224, 132, 0, .035);
+}
+
+.mission-stage,
+.mission-data > div {
+    border-color: #533516;
+}
+
+.mission-stage {
+    border-left: var(--border-width-accent) solid var(--color-accent);
+}
+
+.mission-stage .micro-label {
+    color: var(--color-amber-secondary);
+    font-size: var(--font-size-mission-label);
+}
+
+.mission-stage strong {
+    color: var(--color-amber-light);
+    font-size: var(--font-size-mission-value);
+    text-shadow: 0 0 8px rgba(255, 153, 24, .25);
+}
+
+
+/* MISSION DATA */
+
+.micro-label,
+.mission-data .micro-label {
+    color: var(--color-amber-secondary);
+}
+
+.mission-data .micro-label {
+    font-size: var(--font-size-mission-label);
+}
+
+.mission-data strong {
+    color: var(--color-amber-light);
+    font-size: var(--font-size-mission-data);
+    text-shadow: 0 0 8px rgba(255, 153, 24, .25);
+}
+
+.mission-data .state-pill {
+    background: var(--color-accent-muted);
+    border: var(--border-width) solid #88531d;
+    color: var(--color-status-info);
+}
+
+
+/* RECORDER PANEL */
+
+.recorder-panel {
+    border-color: #69431b;
+}
+
+
+/* METRIC CARDS */
+
+.card {
+    transition: var(--transition-normal);
+}
+
+.card:hover {
+    border-color: #e9a13b;
+
+    box-shadow:
+        0 0 18px rgba(224, 132, 0, .2),
+        inset 0 0 14px rgba(224, 132, 0, .06);
+}
+
+.card::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 169, 40, .22),
+        transparent
+    );
+}
+
+.card-label {
+    color: var(--color-amber-tertiary);
+    font-size: var(--font-size-card-label);
+}
+
+.value {
+    color: var(--color-amber-light);
+    font-size: var(--font-size-card-value);
+    text-shadow: var(--shadow-text-strong);
+}
+
+.unit {
+    color: var(--color-amber-tertiary);
+    font-size: var(--font-size-card-unit);
+}
+
+.highlight {
+    color: var(--color-amber-light);
+    text-shadow: var(--shadow-text-strong);
+}
+
+.cyan {
+    color: #ffd28b;
+}
+
+.yellow {
+    color: var(--color-chart-primary);
+}
+
+
+/* DIAGNOSTICS */
+
+.diagnostics-panel {
+    border-color: #69431b;
+}
+
+.diagnostic-header,
+.diagnostic-row {
+    color: var(--color-amber-detail);
+}
+
+.diagnostic-header {
+    font-size: var(--font-size-diagnostic-header);
+}
+
+.diagnostic-status b,
+.diagnostic-status b.active-text {
+    color: var(--color-status-info);
+    font-size: var(--font-size-diagnostic-status);
+    text-shadow: 0 0 7px rgba(255, 153, 24, .5);
+}
+
+.diagnostic-separator {
+    border-color: #573817;
+}
+
+
+/* DIRECTIONAL BOOSTERS */
+
+.booster {
+    border-color: #714719;
+}
+
+.booster span {
+    font-size: var(--font-size-booster-label);
+}
+
+.booster.pulse {
+    box-shadow: 0 0 14px rgba(255, 153, 24, .3);
+}
+
+.booster.pulse span,
+.booster.pulse .indicator {
+    color: var(--color-amber-light);
+    background-color: var(--color-accent);
+}
+
+
+/* MONITOR */
+
+.monitor-panel {
+    border-color: #69431b;
+}
+
+.monitor-title {
+    color: #e7b36c;
+    font-size: var(--font-size-monitor-title);
+}
+
+.monitor-item {
+    border-color: #503415;
+}
+
+.monitor-item span {
+    color: var(--color-amber-secondary);
+    font-size: var(--font-size-monitor-label);
+}
+
+.monitor-item strong {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-monitor-value);
+}
+
+
+/* EVENT LOG */
+
+.event-panel {
+    border-color: #69431b;
+}
+
+.event-header {
+    color: #e7b36c;
+    font-size: var(--font-size-event-header);
+}
+
+.event-header span:last-child {
+    color: var(--color-status-info);
+}
+
+.event-entry {
+    border-bottom: 1px solid rgba(224, 132, 0, .13);
+    transition: var(--transition-normal);
+}
+
+.event-entry:hover {
+    background: rgba(224, 132, 0, .08);
+}
+
+.event-time {
+    color: var(--color-amber-secondary);
+    font-size: var(--font-size-event-time);
+}
+
+.event-entry span:last-child {
+    color: var(--color-amber-detail);
+    font-size: var(--font-size-event-entry);
+}
+
+
+/* EVENT — FLIGHT PHASE */
+
+.event-entry.phase-event .event-time,
+.event-entry.phase-event span:last-child {
+    color: var(--color-amber-light);
+}
+
+
+/* EVENT — ACTIVATION */
+
+.event-entry.activation span:last-child {
+    color: var(--color-status-info);
+}
+
+
+/* EVENT — DEACTIVATION */
+
+.event-entry.deactivation span:last-child {
+    color: var(--color-amber-tertiary);
+}
+
+
+/* EVENT — ERROR */
+
+.event-entry.error span:last-child {
+    color: var(--color-status-error);
+}
+
+
+/* EVENT — NAVIGATION */
+
+.event-entry.navigation-event span:last-child {
+    color: var(--color-text-primary);
+}
+
+
+/* EVENT — WARNING */
+
+.event-entry.warning span:last-child {
+    color: var(--color-status-warning);
+}
+
+
+/* EVENT — NORMAL */
+
+.event-entry.normal span:last-child {
+    color: var(--color-amber-detail);
+}
+
+
+/* SYSTEM INFO */
+
+.system-info > div {
+    border-color: #533516;
+}
+
+.system-info span {
+    color: var(--color-amber-secondary);
+    font-size: var(--font-size-system-label);
+}
+
+.system-info strong {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-system-value);
+}
+
+
+/* FLIGHT DATA RECORDER */
+
+.recorder-dot {
+    background: var(--color-booster);
+    box-shadow: 0 0 9px var(--color-accent);
+}
+
+.recorder-btn.stop .recorder-dot {
+    background: var(--color-status-error);
+    box-shadow: 0 0 9px var(--color-status-error);
+}
+
+
+/* TELEMETRY GRAPHS */
+
+.telemetry-chart-panel {
+    border-color: #69431b;
+}
+
+.telemetry-chart-panel::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(224, 132, 0, .16),
+        transparent
+    );
+}
+
+.telemetry-chart-header {
+    font-size: var(--font-size-telemetry-title);
+}
+
+.telemetry-chart-header span:last-child {
+    color: var(--color-status-info);
+}
+
+
+/* TELEMETRY READOUTS */
+
+.telemetry-readouts span,
+.telemetry-readouts small {
+    color: var(--color-amber-secondary);
+    font-size: var(--font-size-telemetry-label);
+}
+
+.telemetry-readouts strong {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-telemetry-value);
+    text-shadow: 0 0 8px rgba(255, 153, 24, .3);
+}
+
+.telemetry-readouts > div:nth-child(2) strong,
+.telemetry-readouts > div:nth-child(3) strong {
+    color: var(--color-text-primary);
+    text-shadow: 0 0 8px rgba(255, 153, 24, .3);
+}
+
+
+/* TELEMETRY LEGEND */
+
+.legend-alt {
+    color: var(--color-chart-primary);
+}
+
+.legend-target {
+    color: var(--color-chart-target);
+}
+
+.legend-error {
+    color: var(--color-chart-error);
+}
+
+
+/* =====================================================
+   06. SCROLLBAR
+===================================================== */
+
+.event-list {
+    scrollbar-color: var(--color-border-strong) var(--color-surface);
+    scrollbar-width: thin;
+}
+
+.event-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.event-list::-webkit-scrollbar-track {
+    background: var(--color-surface);
+}
+
+.event-list::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+}
+
+
+/* =====================================================
+   07. FOOTER
+===================================================== */
+
+footer {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-footer);
+    border-color: #533516;
+}
+
+
+/* =====================================================
+   08. SYSTEM STATES
+===================================================== */
+
+/* SUCCESS */
+
+.state-pill.running,
+.diagnostic-status b.active-text {
+    color: var(--color-status-success);
+}
+
+.state-pill.running {
+    box-shadow: 0 0 10px rgba(255, 153, 24, .2);
+}
+
+
+/* INFO */
+
+.state-pill.completed {
+    color: var(--color-amber-light);
+}
+
+
+/* WARNING */
+
+.state-pill.idle {
+    color: var(--color-text-muted);
+}
+
+
+/* SHARED STATE PILL */
+
+.state-pill.running,
+.state-pill.completed,
+.state-pill.idle {
+    background: var(--color-accent-muted);
+    border: var(--border-width) solid #88531d;
+    font-size: var(--font-size-md);
+}
+
+
+/* =====================================================
+   09. ANIMATIONS
+===================================================== */
+
+@keyframes indicator-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(224, 132, 0, .5);
+    }
+
+    50% {
+        opacity: .45;
+        box-shadow: 0 0 2px rgba(224, 132, 0, .15);
+    }
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(224, 132, 0, .2);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(255, 169, 40, .55);
+    }
+}
+
+
+/* =====================================================
+   10. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}

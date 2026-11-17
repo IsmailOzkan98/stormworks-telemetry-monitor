@@ -1,0 +1,71 @@
+{
+    "enabled": true,
+    "title": "GENERAL INFO",
+    "items": [
+        {
+            "id": "stage",
+            "label": "CURRENT FLIGHT OPERATION",
+            "source": "stage",
+            "default": "WAITING DATA",
+            "type": "text",
+            "class": "mission-stage"
+        },
+        {
+            "id": "sequence",
+            "label": "SEQUENCE",
+            "source": "state",
+            "default": "--",
+            "type": "text"
+        },
+        {
+            "id": "rxTxState",
+            "label": "RX-TX STATE",
+            "source": "rx_tx_state",
+            "default": "--",
+            "type": "rxTxState"
+        },
+        {
+            "id": "txFrequency",
+            "label": "TX FREQUENCY",
+            "source": "rx_tx_frequency_tx",
+            "default": "--",
+            "type": "number",
+            "decimals": 2
+        },
+        {
+            "id": "rxFrequency",
+            "label": "RX FREQUENCY",
+            "source": "rx_tx_frequency_rx",
+            "default": "--",
+            "type": "number",
+            "decimals": 2
+        },
+        {
+            "id": "executionTicks",
+            "label": "EXECUTION TICKS",
+            "source": "timer",
+            "default": "--",
+            "type": "text"
+        },
+        {
+            "id": "flightStatus",
+            "label": "FLIGHT STATUS",
+            "source": "status",
+            "default": "IDLE",
+            "type": "status"
+        }
+    ],
+    "states": {
+        "rxTxState": {
+            "0": "SEARCHING",
+            "1": "CONNECTED",
+            "2": "LINK LOST",
+            "unknown": "UNKNOWN"
+        },
+        "flightStatus": {
+            "running": "RUNNING",
+            "completed": "COMPLETED",
+            "idle": "IDLE"
+        }
+    }
+}

@@ -1,0 +1,65 @@
+
+{
+    "enabled": true,
+
+    "sectionNumber": "05",
+    "title": "MISSION MONITOR",
+
+    "operationalTitle": "OPERATIONAL STATUS",
+    "unit": "YR-02",
+
+    "items": [
+
+        {
+            "id": "autopilot",
+            "label": "AUTOPILOT",
+            "source": "ap",
+            "default": "--",
+            "type": "boolean"
+        },
+
+        {
+            "id": "flight",
+            "label": "FLIGHT STATUS",
+            "source": "status",
+            "default": "IDLE",
+            "type": "status"
+        },
+
+        {
+            "id": "lastUpdate",
+            "label": "LAST UPDATE",
+            "source": "timestamp",
+            "default": "--",
+            "type": "time"
+        },
+
+        {
+            "id": "packetAge",
+            "label": "PACKET AGE",
+            "default": "--",
+            "type": "packetAge"
+        }
+
+    ],
+
+    "states": {
+
+        "connection": {
+            "online": "ONLINE",
+            "offline": "OFFLINE"
+        },
+
+        "autopilot": {
+            "active": "ACTIVE",
+            "inactive": "OFFLINE"
+        },
+
+        "flightStatus": {
+            "running": "RUNNING",
+            "completed": "COMPLETED",
+            "idle": "IDLE"
+        }
+
+    }
+}

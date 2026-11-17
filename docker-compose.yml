@@ -1,8 +1,11 @@
+name: stormworks-api-server
 
 services:
-  stormworks-test:
+  stormworks-api-server:
     build: .
-    container_name: stormworks-test
+    container_name: stormworks-telemetry
     ports:
       - "8080:8080"
+    volumes:
+      - ./telemetry-monitor:/app
     restart: unless-stopped

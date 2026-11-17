@@ -1,0 +1,73 @@
+
+{
+    "title": {
+        "number": "02",
+        "name": "SYSTEM DIAGNOSTICS"
+    },
+    "groups": [
+        {
+            "id": "subsystems",
+            "title": "SUBSYSTEM",
+            "type": "status",
+            "items": [
+                {
+                    "id": "main",
+                    "label": "MAIN PROPULSION",
+                    "dataKey": "main"
+                },
+                {
+                    "id": "altHold",
+                    "label": "ALTITUDE HOLD",
+                    "dataKey": "alt_hold"
+                },
+                {
+                    "id": "rollStab",
+                    "label": "ROLL STABILIZER",
+                    "dataKey": "roll_stab"
+                },
+                {
+                    "id": "accel",
+                    "label": "THROTTLE CONTROL",
+                    "dataKey": "accel"
+                },
+                {
+                    "id": "afterburner",
+                    "label": "AFTERBURNER",
+                    "dataKey": "afterburner"
+                },
+                {
+                    "id": "descent",
+                    "label": "DESCENT ENABLE",
+                    "dataKey": "descent"
+                }
+            ]
+        },
+        {
+            "id": "boosters",
+            "title": "DIRECTIONAL BOOSTERS",
+            "type": "indicator",
+            "items": [
+                {
+                    "id": "north",
+                    "label": "NORTH",
+                    "dataKey": "north"
+                },
+                {
+                    "id": "east",
+                    "label": "EAST",
+                    "dataKey": "east"
+                },
+                {
+                    "id": "south",
+                    "label": "SOUTH",
+                    "dataKey": "south"
+                },
+                {
+                    "id": "west",
+                    "label": "WEST",
+                    "dataKey": "west"
+                }
+            ]
+        }
+    ]
+}

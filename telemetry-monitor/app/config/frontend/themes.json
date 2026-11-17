@@ -1,0 +1,89 @@
+{
+    "SelectedTheme": 1,
+
+    "themes": [
+        {
+            "id": 1,
+            "name": "oia-mizushima",
+            "path": "/static/modularStylesheet/themes/oia-mizushima.css"
+        },
+        {
+            "id": 2,
+            "name": "nier-automata",
+            "path": "/static/modularStylesheet/themes/nier-automata.css"
+        },
+        {
+            "id": 3,
+            "name": "cyberpunk-os",
+            "path": "/static/modularStylesheet/themes/cyberpunk-os.css"
+        },
+        {
+            "id": 4,
+            "name": "military-ghost-protocol",
+            "path": "/static/modularStylesheet/themes/military-ghost-protocol.css"
+        },
+        {
+            "id": 5,
+            "name": "final-fantasy-vii",
+            "path": "/static/modularStylesheet/themes/final-fantasy-vii.css"
+        },
+        {
+            "id": 6,
+            "name": "cyberpunk-glitch",
+            "path": "/static/modularStylesheet/themes/cyberpunk-glitch/cyberpunk-glitch.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/cyberpunk-glitch/cyberpunk-glitch.js"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "retro-crt-terminal",
+            "path": "/static/modularStylesheet/themes/retro-crt-terminal/retro-crt-terminal.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/retro-crt-terminal/retro-crt-terminal.js"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "hydra",
+            "path": "/static/modularStylesheet/themes/hydra/hydra.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/hydra/hydra.js"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "star-citizen",
+            "path": "/static/modularStylesheet/themes/star-citizen/star-citizen.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/star-citizen/star-citizen.js"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "resident-evil",
+            "path": "/static/modularStylesheet/themes/resident-evil.css"
+        },
+        {
+            "id": 11,
+            "name": "resident-evil-stars",
+            "path": "/static/modularStylesheet/themes/resident-evil-stars/resident-evil-stars.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/resident-evil-stars/resident-evil-stars.js"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "counter-strike",
+            "path": "/static/modularStylesheet/themes/counter-strike.css"
+        },
+        {
+            "id": 13,
+            "name": "cognitive-core",
+            "path": "/static/modularStylesheet/themes/cognitive-core/cognitive-core.css",
+            "scripts": [
+                "/static/modularStylesheet/themes/cognitive-core/cognitive-core.js"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+
+{
+    "modules": {
+        "eventLog": true,
+        "systemEventDetector": true,
+        "flightRecorder": true,
+        "missionBar": true,
+        "systemDiagnostics": true,
+        "systemInformation": true,
+        "missionMonitor": true,
+        "telemetryGraphs": true,
+        "cardsModule": true
+    },
+
+    "dashboard": {
+        "columns": 3,
+        "gap": 14,
+
+        "items": [
+            {
+                "id": "eventLog",
+                "module": "eventLog",
+                "column": 1,
+                "order": 2
+            },
+            {
+                "id": "systemDiagnostics",
+                "module": "systemDiagnostics",
+                "column": 1,
+                "order": 3
+            },
+            {
+                "id": "cardsEngineControl",
+                "module": "cardsModule",
+                "section": "engineControl",
+                "column": 3,
+                "order": 2
+            },
+            {
+                "id": "telemetryGraphs",
+                "module": "telemetryGraphs",
+                "column": 2,
+                "order": 1
+            },
+            {
+                "id": "missionMonitor",
+                "module": "missionMonitor",
+                "column": 2,
+                "order": 2
+            },
+            {
+                "id": "cardsNavigation",
+                "module": "cardsModule",
+                "section": "navigation",
+                "column": 3,
+                "order": 1
+            },
+            {
+                "id": "systemInformation",
+                "module": "systemInformation",
+                "column": 1,
+                "order": 1
+            }
+        ]
+    },
+
+    "registry": {
+
+        "missionBar": {
+            "name": "MISSION BAR",
+            "path": "../modules/missionBar/missionBar.js",
+            "initializer": "initMissionBar",
+            "updater": "updateMissionBarData",
+            "container": "missionBarContainer"
+        },
+
+        "flightRecorder": {
+            "name": "FLIGHT RECORDER",
+            "path": "../modules/flightRecorder/flightRecorder.js",
+            "initializer": "initFlightRecorder",
+            "special": "flightRecorder",
+            "container": "flightRecorderContainer"
+        },
+
+        "eventLog": {
+            "name": "EVENT LOG",
+            "path": "../modules/eventLog/eventLog.js",
+            "initializer": "initEventLog",
+            "special": "eventLog"
+        },
+
+        "missionMonitor": {
+            "name": "MISSION MONITOR",
+            "path": "../modules/missionMonitor/missionMonitor.js",
+            "initializer": "initMissionMonitor",
+            "updater": "updateMissionMonitorData",
+            "special": "missionMonitor"
+        },
+
+        "systemDiagnostics": {
+            "name": "SYSTEM DIAGNOSTICS",
+            "path": "../modules/systemDiagnostics/systemDiagnostics.js",
+            "initializer": "initSystemDiagnostics",
+            "updater": "updateSystemDiagnostics"
+        },
+
+        "telemetryGraphs": {
+            "name": "TELEMETRY GRAPHS",
+            "path": "../modules/telemetryGraphs/telemetryGraphs.js",
+            "initializer": "initTelemetryGraphs",
+            "updater": "updateTelemetryGraphsData"
+        },
+
+        "cardsModule": {
+            "name": "CARDS",
+            "path": "../modules/cards/cards.js",
+            "initializer": "initCards",
+            "updater": "updateCards",
+            "multiple": true,
+            "key": "cards"
+        },
+
+        "systemInformation": {
+            "name": "SYSTEM INFORMATION",
+            "path": "../modules/projectData/projectData.js",
+            "initializer": "initSystemInformation",
+            "special": "systemInformation"
+        }
+    }
+}

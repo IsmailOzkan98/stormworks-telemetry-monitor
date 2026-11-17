@@ -1,0 +1,1133 @@
+
+/* =====================================================
+   NIER: AUTOMATA
+   DESIGN SYSTEM & FULL THEME
+===================================================== */
+
+
+/* =====================================================
+   01. DESIGN TOKENS
+===================================================== */
+
+:root {
+
+    /* ---------------------------------
+       COLORS — BACKGROUNDS
+    --------------------------------- */
+
+    --color-background: #d1cdb7;
+    --color-background-grid: #ccc8b1;
+
+    --color-surface: #dcd8c0;
+    --color-surface-secondary: #c9c5ad;
+    --color-surface-hover: #dcd8c0;
+    --color-surface-inverted: #454138;
+
+
+    /* ---------------------------------
+       COLORS — TEXT
+    --------------------------------- */
+
+    --color-text-primary: #454138;
+    --color-text-secondary: #777362;
+    --color-text-muted: #777362;
+    --color-text-inverted: #dcd8c0;
+
+
+    /* ---------------------------------
+       COLORS — ACCENTS
+    --------------------------------- */
+
+    --color-accent: #454138;
+    --color-accent-hover: #353329;
+    --color-accent-muted: #bab5a1;
+
+
+    /* ---------------------------------
+       COLORS — BORDERS & SHADOWS
+    --------------------------------- */
+
+    --color-border: #bab5a1;
+    --color-border-strong: #454138;
+    --color-shadow: #bab5a1;
+
+
+    /* ---------------------------------
+       COLORS — SYSTEM STATUS
+    --------------------------------- */
+
+    --color-status-success: #65765b;
+    --color-status-info: #657c80;
+    --color-status-warning: #a18a50;
+    --color-status-error: #a45e52;
+
+
+    /* ---------------------------------
+       COLORS — TELEMETRY
+    --------------------------------- */
+
+    --color-chart-primary: var(--color-accent);
+    --color-chart-target: var(--color-status-info);
+    --color-chart-warning: var(--color-status-warning);
+    --color-chart-error: var(--color-status-error);
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — FONTS
+    --------------------------------- */
+
+    --font-primary: Helvetica, Arial, sans-serif;
+    --font-monospace: 'IBM Plex Mono', monospace;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — GLOBAL SIZES
+    --------------------------------- */
+
+    --font-size-xs: 9px;
+    --font-size-sm: 10px;
+    --font-size-base: 12px;
+    --font-size-md: 14px;
+    --font-size-lg: 19px;
+    --font-size-xl: 24px;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — HEADINGS
+    --------------------------------- */
+
+    --font-size-h1: 36px;
+    --font-size-h2: 22px;
+    --font-size-h3: 16px;
+    --font-size-h4: 13px;
+    --font-size-h5: 12px;
+    --font-size-h6: 10px;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — COMPONENTS
+    --------------------------------- */
+
+    /* HEADER */
+    --font-size-header-title: 36px;
+    --font-size-header-subtitle: 12px;
+
+    /* MISSION BAR */
+    --font-size-mission-label: 9px;
+    --font-size-mission-value: 19px;
+    --font-size-mission-data: 14px;
+
+    /* METRIC CARDS */
+    --font-size-card-label: 10px;
+    --font-size-card-value: 24px;
+    --font-size-card-unit: 10px;
+
+    /* DIAGNOSTICS */
+    --font-size-diagnostic-header: 14px;
+    --font-size-diagnostic-label: 11px;
+    --font-size-diagnostic-status: 11px;
+
+    /* BOOSTERS */
+    --font-size-booster-label: 12px;
+
+    /* MONITOR */
+    --font-size-monitor-title: 13px;
+    --font-size-monitor-label: 11px;
+    --font-size-monitor-value: 12px;
+
+    /* EVENT LOG */
+    --font-size-event-header: 13px;
+    --font-size-event-time: 10px;
+    --font-size-event-entry: 11px;
+
+    /* SYSTEM INFO */
+    --font-size-system-label: 10px;
+    --font-size-system-value: 12px;
+
+    /* TELEMETRY */
+    --font-size-telemetry-title: 13px;
+    --font-size-telemetry-label: 10px;
+    --font-size-telemetry-value: 12px;
+
+    /* FOOTER */
+    --font-size-footer: 10px;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — WEIGHTS
+    --------------------------------- */
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — LETTER SPACING
+    --------------------------------- */
+
+    --letter-spacing-tight: 0;
+    --letter-spacing-normal: .03rem;
+    --letter-spacing-wide: 1px;
+    --letter-spacing-wider: 1.5px;
+    --letter-spacing-heading: .5rem;
+
+
+    /* ---------------------------------
+       TYPOGRAPHY — TRANSFORMS
+    --------------------------------- */
+
+    --text-transform-heading: uppercase;
+    --text-transform-label: uppercase;
+
+
+    /* ---------------------------------
+       BORDERS
+    --------------------------------- */
+
+    --border-width: 1px;
+    --border-width-accent: 4px;
+    --border-radius: 0;
+
+
+    /* ---------------------------------
+       SHADOWS
+    --------------------------------- */
+
+    --shadow-sm: 1px 1px 0 var(--color-shadow);
+    --shadow-md: 2px 2px 0 var(--color-shadow);
+    --shadow-lg: 3px 3px 0 var(--color-shadow);
+
+
+    /* ---------------------------------
+       SPACING
+    --------------------------------- */
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+
+
+    /* ---------------------------------
+       MOTION
+    --------------------------------- */
+
+    --transition-fast: .2s ease;
+    --transition-normal: .3s ease;
+
+    --animation-indicator: 2s infinite ease-in-out;
+
+
+    /* ---------------------------------
+       LAYOUT
+    --------------------------------- */
+
+    --grid-size: 20px;
+
+}
+
+
+/* =====================================================
+   02. TYPOGRAPHY SYSTEM
+===================================================== */
+
+
+/* GLOBAL TEXT */
+
+body {
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-light);
+    letter-spacing: var(--letter-spacing-normal);
+}
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    margin: 0;
+}
+
+h1 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-light);
+    letter-spacing: var(--letter-spacing-heading);
+    text-transform: var(--text-transform-heading);
+    text-shadow: 3px 3px 0 var(--color-shadow);
+}
+
+h2 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-regular);
+}
+
+h3 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+}
+
+h4 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-semibold);
+}
+
+
+/* LABELS */
+
+.eyebrow,
+.subtitle,
+.micro-label,
+.card-label {
+    color: var(--color-text-muted);
+}
+
+
+/* DATA TYPOGRAPHY */
+
+.value,
+.mission-data strong,
+.telemetry-readouts strong {
+    font-family: var(--font-monospace);
+}
+
+
+/* =====================================================
+   03. GLOBAL STYLES
+===================================================== */
+
+html {
+    background: var(--color-background);
+}
+
+body {
+    background-color: var(--color-background);
+
+    background-image:
+        linear-gradient(
+            to right,
+            var(--color-background-grid) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            var(--color-background-grid) 1px,
+            transparent 1px
+        );
+
+    background-size: var(--grid-size) var(--grid-size);
+}
+
+body::before {
+    background: none;
+}
+
+::selection {
+    background-color: var(--color-text-primary);
+    color: var(--color-text-inverted);
+}
+
+
+/* =====================================================
+   04. REUSABLE COMPONENTS
+===================================================== */
+
+
+/* ---------------------------------
+   PANELS
+--------------------------------- */
+
+.panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* ---------------------------------
+   SECTION HEADERS
+--------------------------------- */
+
+.section-header {
+    background: var(--color-accent);
+    color: var(--color-text-inverted);
+
+    border-left: var(--border-width-accent) solid var(--color-accent-muted);
+
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 2px;
+    text-transform: var(--text-transform-heading);
+}
+
+.module-header > span {
+    color: var(--color-shadow);
+}
+
+
+/* ---------------------------------
+   INPUTS
+--------------------------------- */
+
+input,
+select,
+textarea {
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+
+    letter-spacing: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+
+/* ---------------------------------
+   BUTTON SYSTEM
+--------------------------------- */
+
+button,
+.button {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    overflow: hidden;
+
+    border: none;
+    border-radius: var(--border-radius);
+
+    background: var(--color-accent-muted);
+    color: var(--color-text-primary);
+
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-normal);
+
+    cursor: pointer;
+
+    box-shadow: none;
+
+    transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+/* BUTTON SWEEP */
+
+button::after,
+.button::after {
+    content: "";
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 0;
+
+    background: var(--color-accent);
+    z-index: -1;
+
+    transition: width var(--transition-fast);
+}
+
+
+/* BUTTON HOVER */
+
+button:not(:disabled):hover,
+.button:hover {
+    background: transparent;
+    color: var(--color-text-inverted);
+    box-shadow: var(--shadow-md);
+}
+
+button:not(:disabled):hover::after,
+.button:hover::after {
+    width: 100%;
+}
+
+
+/* BUTTON ACTIVE */
+
+button:not(:disabled):active,
+.button:active {
+    color: var(--color-text-inverted);
+    box-shadow: none;
+}
+
+
+/* BUTTON DISABLED */
+
+button:disabled,
+.button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/* ---------------------------------
+   INDICATORS
+--------------------------------- */
+
+.indicator {
+    background: var(--color-accent-muted);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: none;
+}
+
+.indicator.active {
+    background: var(--color-status-success);
+    border-color: var(--color-status-success);
+    box-shadow: 0 0 3px var(--color-status-success);
+
+    animation: indicator-pulse var(--animation-indicator);
+}
+
+
+/* =====================================================
+   05. APPLICATION LAYOUT
+===================================================== */
+
+
+/* ---------------------------------
+   HEADER
+--------------------------------- */
+
+header {
+    background: var(--color-surface);
+
+    border: var(--border-width) solid var(--color-border);
+    border-left: var(--border-width-accent) solid var(--color-accent);
+
+    box-shadow: var(--shadow-lg);
+}
+
+header h1 {
+    font-size: var(--font-size-header-title);
+}
+
+h1 span {
+    color: var(--color-accent);
+}
+
+.connection {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.connection strong {
+    color: var(--color-accent);
+}
+
+.connection small {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-header-subtitle);
+}
+
+
+/* ---------------------------------
+   MISSION BAR
+--------------------------------- */
+
+.mission-bar {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.mission-stage {
+    background: var(--color-surface-secondary);
+    border-left: 3px solid var(--color-accent);
+}
+
+.mission-stage .micro-label {
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-mission-label);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wider);
+}
+
+.mission-stage strong {
+    color: var(--color-accent);
+
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-mission-value);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+
+/* MISSION DATA */
+
+.mission-data > div {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.mission-data .micro-label {
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-mission-label);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: var(--text-transform-label);
+}
+
+.mission-data strong {
+    color: var(--color-accent);
+
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-mission-data);
+    font-weight: var(--font-weight-medium);
+
+    overflow-wrap: anywhere;
+}
+
+.mission-data .state-pill {
+    color: var(--color-status-success);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ---------------------------------
+   RECORDER PANEL
+--------------------------------- */
+
+.recorder-panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ---------------------------------
+   METRIC CARDS
+--------------------------------- */
+
+.card {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+
+    box-shadow: var(--shadow-md);
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-accent);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.card::after {
+    background: var(--color-accent);
+}
+
+.card-label {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-card-label);
+    font-weight: var(--font-weight-light);
+}
+
+.value {
+    color: var(--color-accent);
+    font-size: var(--font-size-card-value);
+    font-weight: var(--font-weight-regular);
+}
+
+.unit {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-card-unit);
+}
+
+.highlight {
+    color: var(--color-accent);
+}
+
+.cyan {
+    color: var(--color-status-info);
+}
+
+.yellow {
+    color: var(--color-status-warning);
+}
+
+
+/* ---------------------------------
+   DIAGNOSTICS
+--------------------------------- */
+
+.diagnostics-panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.diagnostic-header {
+    color: var(--color-accent);
+    font-size: var(--font-size-diagnostic-header);
+    font-weight: var(--font-weight-regular);
+}
+
+.diagnostic-row {
+    font-size: var(--font-size-diagnostic-label);
+    border-top: var(--border-width) solid var(--color-border);
+}
+
+.diagnostic-status b {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-diagnostic-status);
+    font-weight: var(--font-weight-regular);
+}
+
+.diagnostic-status b.active-text {
+    color: var(--color-status-success);
+}
+
+.diagnostic-separator {
+    border-top: var(--border-width) solid var(--color-border);
+    color: var(--color-accent);
+}
+
+
+/* ---------------------------------
+   DIRECTIONAL BOOSTERS
+--------------------------------- */
+
+.booster {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+
+    transition: all var(--transition-fast);
+}
+
+.booster span {
+    font-size: var(--font-size-booster-label);
+}
+
+.booster.pulse {
+    background: var(--color-surface-secondary);
+    border-color: var(--color-accent);
+
+    box-shadow: inset 0 0 0 1px var(--color-shadow);
+}
+
+.booster.pulse span {
+    color: var(--color-accent);
+}
+
+.booster.pulse .indicator {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: none;
+}
+
+
+/* ---------------------------------
+   MONITOR
+--------------------------------- */
+
+.monitor-panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.monitor-title {
+    color: var(--color-accent);
+
+    font-size: var(--font-size-monitor-title);
+    border-bottom: var(--border-width) solid var(--color-border);
+    font-weight: var(--font-weight-regular);
+}
+
+.monitor-item {
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.monitor-item span {
+    font-size: var(--font-size-monitor-label);
+    color: var(--color-text-muted);
+}
+
+.monitor-item strong {
+    color: var(--color-accent);
+    font-size: var(--font-size-monitor-value);
+    font-weight: var(--font-weight-regular);
+}
+
+
+/* ---------------------------------
+   EVENT LOG
+--------------------------------- */
+
+.event-panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.event-header {
+    color: var(--color-accent);
+
+    font-size: var(--font-size-event-header);
+    border-bottom: var(--border-width) solid var(--color-border);
+    font-weight: var(--font-weight-regular);
+}
+
+.event-header span:last-child {
+    color: var(--color-status-success);
+}
+
+.event-entry {
+    font-size: var(--font-size-event-entry);
+    border-bottom: var(--border-width) solid var(--color-shadow);
+
+    transition: background-color var(--transition-fast);
+}
+
+.event-entry:hover {
+    background: rgba(69, 65, 56, .05);
+}
+
+.event-time {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-event-time);
+}
+
+.event-entry span:last-child {
+    color: var(--color-accent);
+}
+
+
+/* EVENT — FLIGHT PHASE */
+
+.event-entry.phase-event {
+    border-top: var(--border-width) solid var(--color-border);
+    border-left-color: var(--color-accent);
+}
+
+.event-entry.phase-event .event-time,
+.event-entry.phase-event span:last-child {
+    color: var(--color-accent);
+}
+
+
+/* EVENT — ACTIVATION */
+
+.event-entry.activation {
+    border-left-color: var(--color-status-success);
+}
+
+.event-entry.activation span:last-child {
+    color: var(--color-status-success);
+}
+
+
+/* EVENT — DEACTIVATION */
+
+.event-entry.deactivation {
+    border-left-color: var(--color-text-muted);
+}
+
+.event-entry.deactivation span:last-child {
+    color: var(--color-text-muted);
+}
+
+
+/* EVENT — ERROR */
+
+.event-entry.error {
+    border-left-color: var(--color-status-error);
+    background: rgba(164, 94, 82, .06);
+}
+
+.event-entry.error span:last-child {
+    color: var(--color-status-error);
+}
+
+
+/* EVENT — NAVIGATION */
+
+.event-entry.navigation-event {
+    border-left-color: var(--color-status-info);
+}
+
+.event-entry.navigation-event span:last-child {
+    color: var(--color-status-info);
+}
+
+
+/* EVENT — WARNING */
+
+.event-entry.warning {
+    border-left-color: var(--color-status-warning);
+}
+
+.event-entry.warning span:last-child {
+    color: var(--color-status-warning);
+}
+
+
+/* EVENT — NORMAL */
+
+.event-entry.normal {
+    border-left-color: var(--color-border);
+}
+
+.event-entry.normal span:last-child {
+    color: var(--color-text-muted);
+}
+
+
+/* ---------------------------------
+   SYSTEM INFO
+--------------------------------- */
+
+.system-info > div {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.system-info span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-system-label);
+}
+
+.system-info strong {
+    color: var(--color-accent);
+    font-size: var(--font-size-system-value);
+    font-weight: var(--font-weight-regular);
+}
+
+
+/* ---------------------------------
+   FLIGHT DATA RECORDER
+--------------------------------- */
+
+.recorder-dot {
+    background: var(--color-status-success);
+}
+
+.recorder-btn.stop .recorder-dot {
+    background: var(--color-status-error);
+}
+
+
+/* ---------------------------------
+   TELEMETRY GRAPHS
+--------------------------------- */
+
+.telemetry-chart-panel {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.telemetry-chart-panel::after {
+    background: var(--color-accent);
+}
+
+.telemetry-chart-header {
+    color: var(--color-accent);
+
+    font-size: var(--font-size-telemetry-title);
+    border-bottom: var(--border-width) solid var(--color-border);
+    font-weight: var(--font-weight-regular);
+}
+
+.telemetry-chart-header span:last-child {
+    color: var(--color-text-muted);
+}
+
+
+/* TELEMETRY READOUTS */
+
+.telemetry-readouts span,
+.telemetry-readouts small {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-telemetry-label);
+}
+
+.telemetry-readouts strong {
+    color: var(--color-accent);
+    font-size: var(--font-size-telemetry-value);
+    font-weight: var(--font-weight-regular);
+}
+
+.telemetry-readouts > div:nth-child(2) strong {
+    color: var(--color-chart-target);
+}
+
+.telemetry-readouts > div:nth-child(3) strong {
+    color: var(--color-chart-warning);
+}
+
+
+/* TELEMETRY LEGEND */
+
+.legend-alt {
+    color: var(--color-chart-primary);
+}
+
+.legend-target {
+    color: var(--color-chart-target);
+}
+
+.legend-error {
+    color: var(--color-chart-error);
+}
+
+
+/* =====================================================
+   06. SCROLLBAR
+===================================================== */
+
+.event-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.event-list::-webkit-scrollbar-track {
+    background: var(--color-surface);
+}
+
+.event-list::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+}
+
+
+/* =====================================================
+   07. FOOTER
+===================================================== */
+
+footer {
+    border-top: var(--border-width) solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-footer);
+    font-weight: var(--font-weight-light);
+}
+
+
+/* =====================================================
+   08. SYSTEM STATES
+===================================================== */
+
+/* SUCCESS */
+
+.state-pill.running,
+.diagnostic-status b.active-text {
+    color: var(--color-status-success);
+}
+
+/* INFO */
+
+.state-pill.completed {
+    color: var(--color-status-info);
+}
+
+/* WARNING */
+
+.state-pill.idle {
+    color: var(--color-status-warning);
+}
+
+
+/* =====================================================
+   09. ANIMATIONS
+===================================================== */
+
+@keyframes indicator-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .55;
+    }
+
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .45;
+    }
+
+}
+
+
+/* =====================================================
+   10. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}

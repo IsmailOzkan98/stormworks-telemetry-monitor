@@ -1,0 +1,116 @@
+{
+  "sections": [
+    {
+      "id": "navigation",
+      "title": {
+        "name": "NAVIGATION"
+      },
+      "cards": [
+        {
+          "id": "gpsX",
+          "label": "POSITION X",
+          "dataKey": "my_x",
+          "unit": "CURRENT POSITION",
+          "decimals": 2,
+          "style": "normal"
+        },
+        {
+          "id": "gpsY",
+          "label": "POSITION Y",
+          "dataKey": "my_y",
+          "unit": "CURRENT POSITION",
+          "decimals": 2,
+          "style": "normal"
+        },
+        {
+          "id": "targetX",
+          "label": "DESTINATION X",
+          "dataKey": "target_x",
+          "unit": "TARGET POSITION",
+          "decimals": 2,
+          "style": "normal"
+        },
+        {
+          "id": "targetY",
+          "label": "DESTINATION Y",
+          "dataKey": "target_y",
+          "unit": "TARGET POSITION",
+          "decimals": 2,
+          "style": "normal"
+        },
+        {
+          "id": "distance",
+          "label": "DISTANCE",
+          "dataKey": "ap_distance",
+          "unit": "METERS",
+          "decimals": 1,
+          "style": "highlight"
+        },
+        {
+          "id": "absoluteSpeed",
+          "label": "ABSOLUTE SPEED",
+          "dataKey": "absolute_speed",
+          "unit": "KM/H",
+          "decimals": 1,
+          "style": "normal"
+        }
+      ]
+    },
+    {
+      "id": "engineControl",
+      "title": {
+        "name": "ENGINE & CONTROL"
+      },
+      "cards": [
+        {
+          "id": "rpm",
+          "label": "ENGINE OUTPUT",
+          "dataKey": "rps",
+          "unit": "REVOLUTIONS / SECOND",
+          "decimals": 1,
+          "style": "highlight"
+        },
+        {
+          "id": "rpmTarget",
+          "label": "ENGINE TARGET",
+          "dataKey": "rps_target",
+          "unit": "REVOLUTIONS / MINUTE",
+          "decimals": 1,
+          "style": "normal"
+        },
+        {
+          "id": "roll",
+          "label": "ROLL",
+          "dataKey": "roll",
+          "unit": "ORIENTATION",
+          "decimals": 2,
+          "style": "cyan"
+        },
+        {
+          "id": "pitch",
+          "label": "PITCH",
+          "dataKey": "pitch",
+          "unit": "ORIENTATION",
+          "decimals": 2,
+          "style": "cyan"
+        },
+        {
+          "id": "yaw",
+          "label": "YAW",
+          "dataKey": "yaw",
+          "unit": "ORIENTATION",
+          "decimals": 2,
+          "style": "normal"
+        },
+        {
+          "id": "spoiler",
+          "label": "SPOILER",
+          "dataKey": "spoiler",
+          "unit": "CONTROL VALUE",
+          "decimals": 2,
+          "style": "normal"
+        }
+      ]
+    }
+  ]
+}

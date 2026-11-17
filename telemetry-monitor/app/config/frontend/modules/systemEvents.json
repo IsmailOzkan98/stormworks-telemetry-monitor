@@ -1,0 +1,13 @@
+{
+    "systems": [
+        { "key": "main", "label": "MAIN PROPULSION" },
+        { "key": "alt_hold", "label": "ALTITUDE HOLD" },
+        { "key": "roll_stab", "label": "ROLL STABILIZER" },
+        { "key": "afterburner", "label": "AFTERBURNER" },
+        { "key": "descent", "label": "DESCENT ENABLE" },
+        { "key": "north", "label": "NORTH BOOSTER" },
+        { "key": "east", "label": "EAST BOOSTER" },
+        { "key": "south", "label": "SOUTH BOOSTER" },
+        { "key": "west", "label": "WEST BOOSTER" }
+    ]
+}

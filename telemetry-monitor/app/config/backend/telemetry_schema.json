@@ -1,0 +1,51 @@
+
+{
+    "stage": "WAITING",
+    "state": 0,
+    "status": "IDLE",
+    "timer": 0,
+
+    "alt": 0,
+    "alt_target": 0,
+    "alt_error": 0,
+
+    "vs": 0,
+    "vs_target": 0,
+    "vs_error": 0,
+
+    "rps": 0,
+    "rps_target": 0,
+
+    "roll": 0,
+    "pitch": 0,
+
+    "ap": 0,
+    "ap_distance": 0,
+    "yaw": 0,
+
+    "my_x": 0,
+    "my_y": 0,
+    "target_x": 0,
+    "target_y": 0,
+
+    "main": 0,
+    "alt_hold": 0,
+    "roll_stab": 0,
+    "accel": 0,
+    "descent": 0,
+
+    "north": 0,
+    "east": 0,
+    "south": 0,
+    "west": 0,
+
+    "afterburner": 0,
+    "spoiler": 0,
+    "absolute_speed": 0,
+
+    "rx_tx_state": 0,
+    "rx_tx_frequency_tx": 0,
+    "rx_tx_frequency_rx": 0,
+
+    "timestamp": 0
+}

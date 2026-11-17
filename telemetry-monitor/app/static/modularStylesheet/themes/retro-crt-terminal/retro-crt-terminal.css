@@ -1,0 +1,1139 @@
+/* =====================================================
+   RETRO CRT TERMINAL
+   Full theme adaptation
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+
+/* =====================================================
+   01. DESIGN TOKENS
+===================================================== */
+
+:root {
+
+    /* COLORS — BACKGROUNDS */
+
+    --color-background: #03150d;
+    --color-background-grid: rgba(20, 253, 206, 0.055);
+
+    --color-surface: #062116;
+    --color-surface-secondary: #092b1c;
+    --color-surface-hover: #123b28;
+    --color-surface-inverted: #c9ffe9;
+
+    --color-surface-input: #02170d;
+    --color-surface-indicator: #254b37;
+
+
+    /* COLORS — TEXT */
+
+    --color-text-primary: #14fdce;
+    --color-text-secondary: #8acdb0;
+    --color-text-muted: #568b70;
+    --color-text-inverted: #03150d;
+
+
+    /* COLORS — ACCENTS */
+
+    --color-accent: #14fdce;
+    --color-accent-hover: #70ffd8;
+    --color-accent-muted: #8affdf;
+
+
+    /* COLORS — BORDERS & SHADOWS */
+
+    --color-border: #17613f;
+    --color-border-strong: #1c7950;
+    --color-shadow: rgba(0, 0, 0, 0.55);
+
+    --color-shadow-accent: rgba(20, 253, 206, 0.2);
+    --color-shadow-glow: rgba(20, 253, 206, 0.55);
+
+
+    /* COLORS — SYSTEM STATUS */
+
+    --color-status-success: #14fdce;
+    --color-status-info: #70ffd8;
+    --color-status-warning: #caff65;
+    --color-status-error: #ff6565;
+
+
+    /* COLORS — TELEMETRY */
+
+    --color-chart-primary: #14fdce;
+    --color-chart-target: #caff65;
+    --color-chart-warning: #70ffd8;
+    --color-chart-error: #ff6565;
+
+
+    /* TYPOGRAPHY — FONTS */
+
+    --font-primary: 'VT323', monospace;
+    --font-monospace: 'VT323', 'Share Tech Mono', monospace;
+
+
+    /* TYPOGRAPHY — GLOBAL SIZES */
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.95rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.15rem;
+    --font-size-lg: 1.35rem;
+    --font-size-xl: 1.5rem;
+
+
+    /* TYPOGRAPHY — HEADINGS */
+
+    --font-size-h1: clamp(2.8rem, 6vw, 4.5rem);
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.35rem;
+    --font-size-h5: 1.15rem;
+    --font-size-h6: 1rem;
+
+
+    /* TYPOGRAPHY — COMPONENTS */
+
+    /* HEADER */
+    --font-size-header-title: clamp(2.2rem, 4vw, 3.2rem);
+    --font-size-header-subtitle: 0.85rem;
+
+    /* MISSION BAR */
+    --font-size-mission-label: 0.9rem;
+    --font-size-mission-value: 0.8rem;
+    --font-size-mission-data: 0.8rem;
+
+    /* METRIC CARDS */
+    --font-size-card-label: 0.8rem;
+    --font-size-card-value: 0.85rem;
+    --font-size-card-unit: 0.8rem;
+
+    /* DIAGNOSTICS */
+    --font-size-diagnostic-header: 0.85rem;
+    --font-size-diagnostic-label: 0.8rem;
+    --font-size-diagnostic-status: 0.8rem;
+
+    /* BOOSTERS */
+    --font-size-booster-label: 0.8rem;
+
+    /* MONITOR */
+    --font-size-monitor-title: 0.85rem;
+    --font-size-monitor-label: 0.8rem;
+    --font-size-monitor-value: 0.8rem;
+
+    /* EVENT LOG */
+    --font-size-event-header: 0.85rem;
+    --font-size-event-time: 0.9rem;
+    --font-size-event-entry: 0.8rem;
+
+    /* SYSTEM INFO */
+    --font-size-system-label: 0.9rem;
+    --font-size-system-value: 0.8rem;
+
+    /* TELEMETRY */
+    --font-size-telemetry-title: 0.85rem;
+    --font-size-telemetry-label: 0.9rem;
+    --font-size-telemetry-value: 0.85rem;
+
+    /* FOOTER */
+    --font-size-footer: 0.9rem;
+
+
+    /* TYPOGRAPHY — WEIGHTS */
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+
+    /* TYPOGRAPHY — LETTER SPACING */
+
+    --letter-spacing-tight: 0;
+    --letter-spacing-normal: 0.04em;
+    --letter-spacing-wide: 0.08em;
+    --letter-spacing-wider: 0.12em;
+    --letter-spacing-heading: 0.14em;
+
+
+    /* TYPOGRAPHY — TRANSFORMS */
+
+    --text-transform-heading: uppercase;
+    --text-transform-label: uppercase;
+
+
+    /* BORDERS */
+
+    --border-width: 1px;
+    --border-width-accent: 2px;
+    --border-radius: 0;
+
+
+    /* SHADOWS */
+
+    --shadow-sm: inset 0 0 12px rgba(0, 0, 0, 0.6);
+    --shadow-md:
+        inset 0 0 10px rgba(20, 253, 206, 0.07),
+        0 0 8px rgba(20, 253, 206, 0.08);
+    --shadow-lg:
+        inset 0 0 22px rgba(0, 0, 0, 0.55),
+        0 0 12px rgba(20, 253, 206, 0.055);
+
+    --shadow-text: 0 0 7px rgba(20, 253, 206, 0.24);
+    --shadow-glow: 0 0 8px rgba(20, 253, 206, 0.55);
+    --shadow-panel: 0 5px 20px rgba(0, 0, 0, 0.45);
+
+
+    /* SPACING */
+
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+
+
+    /* MOTION */
+
+    --transition-fast: 180ms steps(3, end);
+    --transition-normal: 180ms steps(3, end);
+    --animation-indicator: 1s steps(2, end) infinite;
+
+
+    /* LAYOUT */
+
+    --grid-size: 20px;
+
+}
+
+
+/* =====================================================
+   02. TYPOGRAPHY SYSTEM
+===================================================== */
+
+/* GLOBAL TEXT */
+
+body {
+    color: var(--color-text-primary);
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing-normal);
+    text-shadow: var(--shadow-text);
+    -webkit-font-smoothing: none;
+}
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-accent-muted);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    text-transform: var(--text-transform-heading);
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    line-height: 0.95;
+    letter-spacing: var(--letter-spacing-normal);
+    text-shadow:
+        0 0 5px rgba(20, 253, 206, 0.9),
+        0 0 18px rgba(20, 253, 206, 0.35);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+}
+
+
+/* LABELS */
+
+.eyebrow,
+.subtitle,
+.micro-label,
+.card-label {
+    text-transform: var(--text-transform-label);
+}
+
+.eyebrow {
+    color: var(--color-status-warning);
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-base);
+    letter-spacing: var(--letter-spacing-heading);
+}
+
+.subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-header-subtitle);
+}
+
+.micro-label {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-mission-label);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.card-label {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-card-label);
+    letter-spacing: var(--letter-spacing-wider);
+}
+
+
+/* DATA TYPOGRAPHY */
+
+.value,
+.mission-data strong,
+.telemetry-readouts strong {
+    color: var(--color-accent-muted);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+}
+
+.value {
+    font-size: var(--font-size-card-value);
+    text-shadow: 0 0 10px rgba(20, 253, 206, 0.42);
+}
+
+.mission-data strong {
+    font-size: var(--font-size-mission-data);
+}
+
+.telemetry-readouts strong {
+    font-size: var(--font-size-telemetry-value);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.3);
+}
+
+
+/* =====================================================
+   03. GLOBAL STYLES
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--color-background);
+    color-scheme: dark;
+}
+
+body {
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(27, 212, 89, 0.12),
+            transparent 72%
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 3px,
+            rgba(0, 0, 0, 0.16) 4px
+        ),
+        #031e11;
+
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.16;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        rgba(0, 0, 0, 0.55) 3px,
+        rgba(0, 0, 0, 0.55) 4px
+    );
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-text-inverted);
+    text-shadow: none;
+}
+
+
+/* =====================================================
+   04. REUSABLE COMPONENTS
+===================================================== */
+
+/* PANELS */
+
+.panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* SECTION HEADERS */
+
+.section-header,
+.module-header > span {
+    color: var(--color-accent-muted);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: var(--text-transform-heading);
+    text-shadow: var(--shadow-glow);
+}
+
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-accent-muted);
+    background: var(--color-surface-input);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow:
+        0 0 0 1px rgba(20, 253, 206, 0.25),
+        0 0 12px rgba(20, 253, 206, 0.18);
+}
+
+
+/* BUTTON SYSTEM */
+
+button,
+.button {
+    background: #07321f;
+    border: var(--border-width-accent) solid var(--color-status-success);
+    border-radius: var(--border-radius);
+    color: var(--color-accent-muted);
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    text-transform: var(--text-transform-label);
+    letter-spacing: var(--letter-spacing-normal);
+    text-shadow: 0 0 7px rgba(20, 253, 206, 0.3);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+
+/* BUTTON SWEEP */
+
+button::after,
+.button::after {
+    border-radius: var(--border-radius);
+}
+
+
+/* BUTTON HOVER */
+
+button:not(:disabled):hover,
+.button:hover {
+    background: var(--color-status-success);
+    color: var(--color-text-inverted);
+    text-shadow: none;
+    box-shadow:
+        0 0 12px rgba(20, 253, 206, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+button:not(:disabled):hover::after,
+.button:hover::after {
+    border-radius: var(--border-radius);
+}
+
+
+/* BUTTON ACTIVE */
+
+button:not(:disabled):active,
+.button:active {
+    transform: translateY(1px);
+    background: var(--color-accent-muted);
+}
+
+
+/* BUTTON DISABLED */
+
+button:disabled,
+.button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* INDICATORS */
+
+.indicator {
+    background: var(--color-surface-indicator);
+    border: var(--border-width) solid var(--color-text-muted);
+    box-shadow: inset 0 0 4px #000;
+}
+
+.indicator.active {
+    background: var(--color-status-success);
+    border-color: var(--color-status-success);
+    box-shadow:
+        0 0 5px var(--color-status-success),
+        0 0 12px rgba(20, 253, 206, 0.55);
+}
+
+
+/* =====================================================
+   05. APPLICATION LAYOUT
+===================================================== */
+
+/* HEADER */
+
+header {
+    border-bottom: var(--border-width-accent) solid var(--color-border);
+    background: rgba(3, 30, 17, 0.9);
+    box-shadow: var(--shadow-panel);
+}
+
+header h1 {
+    font-size: var(--font-size-header-title);
+}
+
+h1 span {
+    color: var(--color-text-primary);
+}
+
+.connection {
+    border: var(--border-width) solid var(--color-border);
+    background: rgba(3, 30, 17, 0.8);
+    padding: var(--spacing-sm) var(--spacing-md);
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+.connection strong {
+    color: var(--color-status-success);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.65);
+}
+
+.connection small {
+    color: var(--color-text-muted);
+}
+
+
+/* MISSION BAR */
+
+.mission-bar {
+    background: var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(20, 253, 206, 0.08);
+}
+
+.mission-stage {
+    border-right: var(--border-width) solid var(--color-border);
+}
+
+.mission-stage .micro-label {
+    color: var(--color-text-muted);
+}
+
+.mission-stage strong {
+    color: var(--color-accent-muted);
+    font-size: var(--font-size-mission-value);
+    font-weight: var(--font-weight-regular);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.3);
+}
+
+
+/* MISSION DATA */
+
+.mission-data > div {
+    border-left: var(--border-width) solid var(--color-border);
+}
+
+.mission-data .micro-label {
+    color: var(--color-text-muted);
+}
+
+.mission-data .state-pill {
+    font-size: var(--font-size-base);
+}
+
+
+/* RECORDER PANEL */
+
+.recorder-panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* METRIC CARDS */
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-fast);
+}
+
+.card:hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface-secondary);
+    box-shadow:
+        inset 0 0 20px rgba(20, 253, 206, 0.06),
+        0 0 16px rgba(20, 253, 206, 0.18);
+    transform: translateY(-2px);
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(20, 253, 206, 0.025) 4px
+    );
+}
+
+.unit {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-card-unit);
+}
+
+.highlight {
+    color: var(--color-accent-muted);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.45);
+}
+
+.cyan {
+    color: var(--color-status-info);
+    text-shadow: 0 0 8px rgba(112, 255, 216, 0.4);
+}
+
+.yellow {
+    color: var(--color-status-warning);
+    text-shadow: 0 0 8px rgba(202, 255, 101, 0.35);
+}
+
+
+/* DIAGNOSTICS */
+
+.diagnostics-panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-surface);
+}
+
+.diagnostic-header {
+    color: var(--color-accent-muted);
+    border-bottom: var(--border-width) solid var(--color-border);
+    font-size: var(--font-size-diagnostic-header);
+    text-transform: var(--text-transform-heading);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.diagnostic-row {
+    border-bottom: 1px dashed rgba(20, 253, 206, 0.18);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-diagnostic-label);
+}
+
+.diagnostic-status b {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-diagnostic-status);
+    font-weight: var(--font-weight-regular);
+}
+
+.diagnostic-status b.active-text {
+    color: var(--color-status-success);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.55);
+}
+
+.diagnostic-separator {
+    border-color: var(--color-border);
+    opacity: 0.65;
+}
+
+
+/* DIRECTIONAL BOOSTERS */
+
+.booster {
+    background: var(--color-surface-secondary);
+    border: var(--border-width) solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-booster-label);
+}
+
+.booster.pulse {
+    border-color: var(--color-status-success);
+    box-shadow: 0 0 14px rgba(20, 253, 206, 0.2);
+}
+
+.booster.pulse span {
+    color: var(--color-accent-muted);
+    text-shadow: 0 0 8px rgba(20, 253, 206, 0.45);
+}
+
+.booster.pulse .indicator {
+    background: var(--color-status-success);
+    box-shadow: 0 0 10px var(--color-status-success);
+}
+
+
+/* MONITOR */
+
+.monitor-panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-surface);
+}
+
+.monitor-title {
+    color: var(--color-accent-muted);
+    font-size: var(--font-size-monitor-title);
+    text-transform: var(--text-transform-heading);
+    letter-spacing: var(--letter-spacing-wide);
+}
+
+.monitor-item {
+    border-bottom: 1px dashed rgba(20, 253, 206, 0.15);
+}
+
+.monitor-item span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-monitor-label);
+}
+
+.monitor-item strong {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-monitor-value);
+    font-weight: var(--font-weight-regular);
+}
+
+
+/* EVENT LOG */
+
+.event-panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-surface);
+}
+
+.event-header {
+    border-bottom: var(--border-width) solid var(--color-border);
+    color: var(--color-accent-muted);
+    font-size: var(--font-size-event-header);
+}
+
+.event-header span:last-child {
+    color: var(--color-text-muted);
+}
+
+.event-entry {
+    border-bottom: 1px dashed rgba(20, 253, 206, 0.14);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-event-entry);
+    transition: var(--transition-fast);
+}
+
+.event-entry:hover {
+    background: rgba(20, 253, 206, 0.08);
+    color: var(--color-accent-muted);
+}
+
+.event-time {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-event-time);
+}
+
+.event-entry span:last-child {
+    color: var(--color-text-secondary);
+}
+
+
+/* EVENT — FLIGHT PHASE */
+
+.event-entry.phase-event {
+    border-left: var(--border-width-accent) solid var(--color-status-info);
+}
+
+.event-entry.phase-event .event-time,
+.event-entry.phase-event span:last-child {
+    color: var(--color-status-info);
+}
+
+
+/* EVENT — ACTIVATION */
+
+.event-entry.activation {
+    border-left: var(--border-width-accent) solid var(--color-status-success);
+}
+
+.event-entry.activation span:last-child {
+    color: var(--color-status-success);
+}
+
+
+/* EVENT — DEACTIVATION */
+
+.event-entry.deactivation {
+    border-left: var(--border-width-accent) solid var(--color-text-muted);
+}
+
+.event-entry.deactivation span:last-child {
+    color: var(--color-text-muted);
+}
+
+
+/* EVENT — ERROR */
+
+.event-entry.error {
+    border-left: var(--border-width-accent) solid var(--color-status-error);
+}
+
+.event-entry.error span:last-child {
+    color: var(--color-status-error);
+}
+
+
+/* EVENT — NAVIGATION */
+
+.event-entry.navigation-event {
+    border-left: var(--border-width-accent) solid var(--color-status-info);
+}
+
+.event-entry.navigation-event span:last-child {
+    color: var(--color-status-info);
+}
+
+
+/* EVENT — WARNING */
+
+.event-entry.warning {
+    border-left: var(--border-width-accent) solid var(--color-status-warning);
+}
+
+.event-entry.warning span:last-child {
+    color: var(--color-status-warning);
+}
+
+
+/* EVENT — NORMAL */
+
+.event-entry.normal {
+    border-left: var(--border-width-accent) solid var(--color-status-success);
+}
+
+.event-entry.normal span:last-child {
+    color: var(--color-status-success);
+}
+
+
+/* SYSTEM INFO */
+
+.system-info > div {
+    border-bottom: 1px dashed rgba(20, 253, 206, 0.15);
+}
+
+.system-info span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-system-label);
+}
+
+.system-info strong {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-system-value);
+    font-weight: var(--font-weight-regular);
+}
+
+
+/* FLIGHT DATA RECORDER */
+
+.recorder-dot {
+    background: var(--color-status-error);
+    box-shadow: 0 0 8px var(--color-status-error);
+}
+
+.recorder-btn.stop .recorder-dot {
+    animation: var(--animation-indicator);
+}
+
+
+/* TELEMETRY GRAPHS */
+
+.telemetry-chart-panel {
+    background:
+        linear-gradient(
+            rgba(20, 253, 206, 0.025),
+            transparent 35%
+        ),
+        var(--color-surface);
+    border: var(--border-width-accent) solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--color-surface);
+    position: relative;
+    overflow: hidden;
+}
+
+.telemetry-chart-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.45;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 4px,
+        rgba(20, 253, 206, 0.045) 5px
+    );
+}
+
+.telemetry-chart-header {
+    border-bottom: var(--border-width) solid var(--color-border);
+    color: var(--color-accent-muted);
+    font-size: var(--font-size-telemetry-title);
+}
+
+.telemetry-chart-header span:last-child {
+    color: var(--color-text-muted);
+}
+
+
+/* TELEMETRY READOUTS */
+
+.telemetry-readouts span,
+.telemetry-readouts small {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-telemetry-label);
+}
+
+.telemetry-readouts > div:nth-child(2) strong {
+    color: var(--color-chart-warning);
+}
+
+.telemetry-readouts > div:nth-child(3) strong {
+    color: var(--color-chart-target);
+}
+
+
+/* TELEMETRY LEGEND */
+
+.legend-alt {
+    color: var(--color-chart-primary);
+}
+
+.legend-target {
+    color: var(--color-chart-target);
+}
+
+.legend-error {
+    color: var(--color-chart-error);
+}
+
+
+/* =====================================================
+   06. SCROLLBAR
+===================================================== */
+
+.event-list {
+    scrollbar-color: var(--color-status-success) var(--color-background);
+    scrollbar-width: thin;
+}
+
+.event-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.event-list::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+.event-list::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border: var(--border-width) solid var(--color-status-success);
+}
+
+
+/* =====================================================
+   07. FOOTER
+===================================================== */
+
+footer {
+    color: var(--color-text-muted);
+    border-top: var(--border-width) solid var(--color-border);
+    font-size: var(--font-size-footer);
+    font-weight: var(--font-weight-light);
+    text-shadow: none;
+}
+
+
+/* =====================================================
+   08. SYSTEM STATES
+===================================================== */
+
+/* SUCCESS */
+
+.state-pill.running,
+.diagnostic-status b.active-text {
+    color: var(--color-status-success);
+}
+
+.state-pill.running {
+    border: var(--border-width) solid var(--color-status-success);
+    background: rgba(20, 253, 206, 0.1);
+    box-shadow: 0 0 8px rgba(20, 253, 206, 0.2);
+}
+
+
+/* INFO */
+
+.state-pill.completed {
+    color: var(--color-status-warning);
+    border: var(--border-width) solid var(--color-status-warning);
+    background: rgba(202, 255, 101, 0.08);
+}
+
+
+/* WARNING */
+
+.state-pill.idle {
+    color: var(--color-text-muted);
+    border: var(--border-width) solid var(--color-border);
+    background: rgba(86, 139, 112, 0.08);
+}
+
+
+/* =====================================================
+   09. ANIMATIONS
+===================================================== */
+
+@keyframes indicator-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px var(--color-status-error);
+    }
+
+    50% {
+        opacity: 0.35;
+        box-shadow: none;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+}
+
+
+/* =====================================================
+   10. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
